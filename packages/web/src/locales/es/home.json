@@ -1,0 +1,82 @@
+{
+  "hero": {
+    "title": "Forme Su LLC en Minutos, No Meses",
+    "subtitle": "Preparación de documentos legales asequible y accesible para emprendedores. No se requiere abogado. Soporte para CA, NY, TX, FL y DE. Idioma español disponible.",
+    "cta_register": "Comenzar Gratis",
+    "cta_login": "Iniciar Sesión",
+    "cta_dashboard": "Ir al Panel"
+  },
+  "features": {
+    "title": "¿Por Qué Legal Commons?",
+    "subtitle": "Creemos que todos deberían tener acceso a servicios legales, independientemente de sus ingresos o idioma.",
+    "fast": {
+      "title": "Rápido",
+      "description": "Complete la formación de su LLC en 10 minutos. Generación instantánea de documentos con plantillas profesionales."
+    },
+    "affordable": {
+      "title": "Asequible",
+      "description": "Generación de documentos gratuita. Pague solo las tarifas de presentación del estado ($90-$300). Sin honorarios de abogado de $500-2000."
+    },
+    "accessible": {
+      "title": "Accesible",
+      "description": "Soporte en idioma español. Explicaciones en lenguaje sencillo. Compatible con dispositivos móviles. Diseñado para todos."
+    }
+  },
+  "how_it_works": {
+    "title": "Cómo Funciona",
+    "step1": {
+      "title": "Complete el Formulario",
+      "description": "Responda preguntas simples sobre su negocio. Lo guiaremos en cada paso con explicaciones en lenguaje claro."
+    },
+    "step2": {
+      "title": "Genere Documentos",
+      "description": "Creamos instantáneamente sus Artículos de Organización y Acuerdo Operativo utilizando plantillas legales profesionales."
+    },
+    "step3": {
+      "title": "Presente ante el Estado",
+      "description": "Descargue sus documentos y siga nuestras instrucciones de presentación. Su LLC será oficial en días, no meses."
+    }
+  },
+  "states": {
+    "title": "Estados Soportados",
+    "subtitle": "Forme su LLC en cualquiera de estos estados con plantillas y requisitos específicos del estado",
+    "california": "California",
+    "new_york": "Nueva York",
+    "texas": "Texas",
+    "florida": "Florida",
+    "delaware": "Delaware",
+    "filing_fee": "Tarifa de Presentación: ${{fee}}"
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "question1": {
+      "question": "¿Qué es una LLC y necesito una?",
+      "answer": "Una LLC (Compañía de Responsabilidad Limitada) protege sus activos personales de las deudas y demandas comerciales. Si está iniciando un negocio, trabajando como autónomo o administrando propiedades de alquiler, una LLC proporciona protección legal y beneficios fiscales."
+    },
+    "question2": {
+      "question": "¿Cuánto cuesta formar una LLC?",
+      "answer": "Legal Commons proporciona generación de documentos gratuita. Solo paga las tarifas de presentación del estado ($70-$300 dependiendo de su estado). Compare eso con los abogados que cobran $500-$2,000 o servicios como LegalZoom que cobran $300+ además de las tarifas estatales."
+    },
+    "question3": {
+      "question": "¿Necesito un abogado para formar una LLC?",
+      "answer": "¡No! Nuestra plataforma lo guía a través de todo el proceso con preguntas simples y genera documentos legales conformes con el estado. Usamos las mismas plantillas que usan los abogados. Puede formar su LLC usted mismo y ahorrar miles de dólares."
+    },
+    "question4": {
+      "question": "¿Cuánto tiempo toma formar una LLC?",
+      "answer": "Puede completar nuestro formulario en aproximadamente 10 minutos. Después de presentar sus documentos ante el estado, la aprobación generalmente toma de 1 a 2 semanas dependiendo del estado. Algunos estados ofrecen procesamiento acelerado por una tarifa adicional."
+    },
+    "question5": {
+      "question": "¿Qué estados apoyan?",
+      "answer": "Actualmente apoyamos California, Nueva York, Texas, Florida y Delaware. Estos estados representan más del 40% de todas las empresas estadounidenses. Estamos expandiendo continuamente a más estados."
+    },
+    "question6": {
+      "question": "¿Está Legal Commons disponible en español?",
+      "answer": "¡Sí! Ofrecemos soporte completo en idioma español para toda la plataforma. Use el selector de idioma en el encabezado para cambiar entre inglés y español (Español)."
+    }
+  },
+  "cta": {
+    "title": "¿Listo para comenzar?",
+    "subtitle": "Cree su cuenta hoy y acceda a servicios legales asequibles.",
+    "button": "Crear Cuenta Gratuita"
+  }
+}
