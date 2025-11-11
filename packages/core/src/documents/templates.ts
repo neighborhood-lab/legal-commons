@@ -8,7 +8,9 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 // Database returns snake_case, but types are defined as camelCase
 // Until we add knex postProcessResponse, we need to handle both
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type LLCCompanyDB = Record<string, any>
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type LLCMemberDB = Record<string, any>
 
 // Get the directory name for ES modules

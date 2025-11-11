@@ -87,5 +87,6 @@ app.use((err: Error, _req: express.Request, res: express.Response) => {
 })
 
 app.listen(port, () => {
-  console.log(`Legal Commons API server listening on port ${port}`)
+  // eslint-disable-next-line no-console
+  console.info(`Legal Commons API server listening on port ${port}`)
 })
