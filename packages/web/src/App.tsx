@@ -16,6 +16,7 @@ import { LoginPage } from './pages/LoginPage'
 import { RegisterPage } from './pages/RegisterPage'
 import { DashboardPage } from './pages/DashboardPage'
 import { NotFoundPage } from './pages/NotFoundPage'
+import { LLCFormationPage } from './pages/llc-formation/LLCFormationPage'
 
 export function App() {
   return (
@@ -36,6 +37,14 @@ export function App() {
                   element={
                     <ProtectedRoute>
                       <DashboardPage />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/llc-formation"
+                  element={
+                    <ProtectedRoute>
+                      <LLCFormationPage />
                     </ProtectedRoute>
                   }
                 />

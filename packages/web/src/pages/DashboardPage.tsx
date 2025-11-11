@@ -2,6 +2,7 @@
  * Dashboard page for authenticated users
  */
 
+import { Link } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 
 export function DashboardPage() {
@@ -47,7 +48,9 @@ export function DashboardPage() {
           Quick Actions
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <button className="btn-primary">Start LLC Formation</button>
+          <Link to="/llc-formation" className="btn-primary text-center">
+            Start LLC Formation
+          </Link>
           <button className="btn-secondary">View All Documents</button>
           <button className="btn-secondary">Schedule Consultation</button>
         </div>
