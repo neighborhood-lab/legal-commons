@@ -8,7 +8,9 @@ import helmet from 'helmet'
 import cors from 'cors'
 import morgan from 'morgan'
 import { config } from 'dotenv'
+import rateLimit from 'express-rate-limit'
 import { checkDatabaseHealth } from '@legal-commons/core'
+import authRoutes from './routes/auth'
 
 // Load environment variables
 config()
@@ -28,10 +30,30 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(morgan('combined'))
 
+// Rate limiting
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 5, // 5 requests per window
+  message: 'Too many authentication attempts, please try again later',
+  standardHeaders: true,
+  legacyHeaders: false,
+})
+
+const generalLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // 100 requests per window
+  message: 'Too many requests, please try again later',
+  standardHeaders: true,
+  legacyHeaders: false,
+})
+
+// Apply general rate limiting to all routes
+app.use('/api', generalLimiter)
+
 // Health check endpoint
 app.get('/health', async (_req, res) => {
   const dbHealthy = await checkDatabaseHealth()
-  
+
   res.json({
     status: dbHealthy ? 'ok' : 'degraded',
     timestamp: new Date().toISOString(),
@@ -40,6 +62,9 @@ app.get('/health', async (_req, res) => {
     },
   })
 })
+
+// API routes
+app.use('/api/auth', authLimiter, authRoutes)
 
 // API documentation placeholder
 app.get('/api-docs', (_req, res) => {
@@ -52,12 +77,10 @@ app.use((_req, res) => {
 })
 
 // Error handler
-app.use(
-  (err: Error, _req: express.Request, res: express.Response) => {
-    console.error(err.stack)
-    res.status(500).json({ error: 'Internal server error' })
-  }
-)
+app.use((err: Error, _req: express.Request, res: express.Response) => {
+  console.error(err.stack)
+  res.status(500).json({ error: 'Internal server error' })
+})
 
 app.listen(port, () => {
   console.log(`Legal Commons API server listening on port ${port}`)
