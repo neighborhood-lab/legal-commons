@@ -1,8 +1,8 @@
 # Task 0005: Setup CI/CD Pipeline
 
 ## Status
-- [x] To Do
-- [ ] In Progress
+- [ ] To Do
+- [x] In Progress
 - [ ] Completed
 
 ## Priority

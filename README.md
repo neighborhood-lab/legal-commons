@@ -2,6 +2,8 @@
 
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL%203.0-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D22.0.0-brightgreen.svg)](https://nodejs.org/)
+[![CI](https://github.com/neighborhood-lab/legal-commons/actions/workflows/ci.yml/badge.svg)](https://github.com/neighborhood-lab/legal-commons/actions/workflows/ci.yml)
+[![E2E Tests](https://github.com/neighborhood-lab/legal-commons/actions/workflows/e2e.yml/badge.svg)](https://github.com/neighborhood-lab/legal-commons/actions/workflows/e2e.yml)
 
 **Open-source legal services platform democratizing access to legal document preparation and filing assistance.**
 
