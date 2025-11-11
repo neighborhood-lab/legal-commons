@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Articles of Organization - {{companyName}}</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.6;
+      margin: 40px;
+      color: #000;
+    }
+    h1 {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    h2 {
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    p {
+      margin: 10px 0;
+      text-align: justify;
+    }
+    .article {
+      margin: 20px 0;
+    }
+    .signature-section {
+      margin-top: 50px;
+      page-break-inside: avoid;
+    }
+    .signature-line {
+      border-top: 1px solid #000;
+      width: 300px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ARTICLES OF ORGANIZATION<br>OF<br>{{companyName}}<br>(A California Limited Liability Company)</h1>
+
+  <div class="article">
+    <h2>ARTICLE 1: NAME</h2>
+    <p>The name of this limited liability company is {{companyName}}.</p>
+  </div>
+
+  <div class="article">
+    <h2>ARTICLE 2: PURPOSE</h2>
+    <p>The purpose of the limited liability company is to engage in {{businessPurpose}}, and any lawful act or activity for which a limited liability company may be organized under the Beverly-Killea Limited Liability Company Act.</p>
+  </div>
+
+  <div class="article">
+    <h2>ARTICLE 3: REGISTERED AGENT</h2>
+    <p>The name and address in the State of California of this limited liability company's initial agent for service of process is:</p>
+    <p style="margin-left: 40px;">
+      <strong>{{agentName}}</strong><br>
+      {{agentAddress}}<br>
+      {{agentCity}}, California {{agentZip}}
+    </p>
+  </div>
+
+  <div class="article">
+    <h2>ARTICLE 4: MANAGEMENT</h2>
+    {{#if isMemberManaged}}
+    <p>This limited liability company shall be managed by all of its members.</p>
+    {{else}}
+    <p>This limited liability company shall be managed by one or more managers.</p>
+    {{/if}}
+  </div>
+
+  <div class="article">
+    <h2>ARTICLE 5: PRINCIPAL OFFICE</h2>
+    <p>The street address of the principal office of the limited liability company in the State of California is:</p>
+    <p style="margin-left: 40px;">
+      {{officeAddress}}<br>
+      {{officeCity}}, California {{officeZip}}
+    </p>
+  </div>
+
+  <div class="article">
+    <h2>ARTICLE 6: DURATION</h2>
+    <p>The latest date on which the limited liability company is to dissolve is perpetual.</p>
+  </div>
+
+  <div class="signature-section">
+    <p><strong>IN WITNESS WHEREOF,</strong> the undersigned organizer has executed these Articles of Organization on {{formationDate}}.</p>
+    
+    <div style="margin-top: 60px;">
+      <div class="signature-line"></div>
+      <p><strong>{{organizerName}}</strong></p>
+      <p>Organizer</p>
+      
+      <div style="margin-top: 30px;">
+        Date: <div class="signature-line" style="display: inline-block; width: 200px; margin-left: 20px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 60px; padding: 20px; border: 1px solid #000;">
+    <p><strong>IMPORTANT CALIFORNIA FILING INFORMATION:</strong></p>
+    <p style="margin-top: 10px;">
+      1. These Articles must be filed with the California Secretary of State along with the required filing fee.<br>
+      2. Within 90 days of filing, the LLC must publish a statement in a newspaper of general circulation in the county where the principal office is located.<br>
+      3. File IRS Form 2553 if electing S-Corporation tax treatment.<br>
+      4. File California Form 3522 (LLC Tax Voucher) annually.<br>
+      5. An LLC Statement of Information (Form LLC-12) must be filed within 90 days of formation and biennially thereafter.
+    </p>
+  </div>
+</body>
+</html>
