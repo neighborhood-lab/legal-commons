@@ -11,12 +11,17 @@
     "logout": "Log Out"
   },
   "footer": {
+    "about_title": "About Legal Commons",
+    "about_description": "Open-source platform democratizing access to legal services and document preparation.",
+    "links_title": "Quick Links",
+    "contact_title": "Contact",
     "tagline": "Making legal services accessible to everyone",
     "about_us": "About Us",
     "contact": "Contact",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "faq": "FAQ",
+    "github": "GitHub",
     "copyright": "© {{year}} Legal Commons. All rights reserved."
   },
   "language": {

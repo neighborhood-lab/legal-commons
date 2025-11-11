@@ -3,8 +3,10 @@
  */
 
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 export function Footer() {
+  const { t } = useTranslation('common')
   const currentYear = new Date().getFullYear()
 
   return (
@@ -14,17 +16,17 @@ export function Footer() {
           {/* About */}
           <div>
             <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-3">
-              About Legal Commons
+              {t('footer.about_title')}
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              Open-source platform democratizing access to legal services and document preparation.
+              {t('footer.about_description')}
             </p>
           </div>
 
           {/* Links */}
           <div>
             <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-3">
-              Quick Links
+              {t('footer.links_title')}
             </h3>
             <ul className="space-y-2">
               <li>
@@ -32,7 +34,7 @@ export function Footer() {
                   to="/about"
                   className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
                 >
-                  About Us
+                  {t('footer.about_us')}
                 </Link>
               </li>
               <li>
@@ -40,7 +42,7 @@ export function Footer() {
                   to="/privacy"
                   className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
                 >
-                  Privacy Policy
+                  {t('footer.privacy')}
                 </Link>
               </li>
               <li>
@@ -48,7 +50,7 @@ export function Footer() {
                   to="/terms"
                   className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
                 >
-                  Terms of Service
+                  {t('footer.terms')}
                 </Link>
               </li>
             </ul>
@@ -56,7 +58,9 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-3">Contact</h3>
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-3">
+              {t('footer.contact_title')}
+            </h3>
             <ul className="space-y-2">
               <li>
                 <a
@@ -73,7 +77,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
                 >
-                  GitHub
+                  {t('footer.github')}
                 </a>
               </li>
             </ul>
@@ -82,7 +86,7 @@ export function Footer() {
 
         <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
           <p className="text-center text-sm text-gray-600 dark:text-gray-400">
-            © {currentYear} Legal Commons. All rights reserved.
+            {t('footer.copyright', { year: currentYear })}
           </p>
         </div>
       </div>
