@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate of Formation - {{companyName}}</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.6;
+      margin: 40px;
+      color: #000;
+    }
+    h1 {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    h2 {
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    p {
+      margin: 10px 0;
+      text-align: justify;
+    }
+    .article {
+      margin: 20px 0;
+    }
+    .signature-section {
+      margin-top: 50px;
+      page-break-inside: avoid;
+    }
+    .signature-line {
+      border-top: 1px solid #000;
+      width: 300px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h1>CERTIFICATE OF FORMATION<br>OF<br>{{companyName}}<br>(A Texas Limited Liability Company)</h1>
+
+  <div class="article">
+    <h2>ARTICLE 1: NAME</h2>
+    <p>The name of the limited liability company is {{companyName}}.</p>
+  </div>
+
+  <div class="article">
+    <h2>ARTICLE 2: REGISTERED AGENT AND REGISTERED OFFICE</h2>
+    <p>The initial registered agent is:</p>
+    <p style="margin-left: 40px;">
+      <strong>Name:</strong> {{agentName}}<br>
+      <strong>Address:</strong><br>
+      {{agentAddress}}<br>
+      {{agentCity}}, Texas {{agentZip}}
+    </p>
+  </div>
+
+  <div class="article">
+    <h2>ARTICLE 3: GOVERNING AUTHORITY</h2>
+    {{#if isMemberManaged}}
+    <p>The limited liability company will be managed by its members.</p>
+    {{else}}
+    <p>The limited liability company will be managed by managers.</p>
+    {{/if}}
+  </div>
+
+  <div class="article">
+    <h2>ARTICLE 4: PURPOSE AND POWERS</h2>
+    <p>The purpose for which the limited liability company is organized is to engage in {{businessPurpose}}, and to engage in any lawful act or activity for which a limited liability company may be organized under the Texas Business Organizations Code.</p>
+  </div>
+
+  <div class="article">
+    <h2>ARTICLE 5: PRINCIPAL PLACE OF BUSINESS</h2>
+    <p>The address of the principal place of business of the limited liability company is:</p>
+    <p style="margin-left: 40px;">
+      {{officeAddress}}<br>
+      {{officeCity}}, Texas {{officeZip}}
+    </p>
+  </div>
+
+  <div class="article">
+    <h2>ARTICLE 6: DURATION</h2>
+    <p>The period of duration of the limited liability company is perpetual.</p>
+  </div>
+
+  <div class="article">
+    <h2>ARTICLE 7: ORGANIZER</h2>
+    <p>The name and address of the organizer signing this certificate is:</p>
+    <p style="margin-left: 40px;">
+      <strong>{{organizerName}}</strong><br>
+      {{organizerAddress}}
+    </p>
+  </div>
+
+  <div class="signature-section">
+    <p><strong>EXECUTION:</strong></p>
+    <p>The undersigned signs this document subject to the penalties imposed by law for the submission of a materially false or fraudulent instrument and certifies under penalty of perjury that the undersigned is authorized under the provisions of law governing the entity to execute the filing instrument.</p>
+    
+    <div style="margin-top: 60px;">
+      <p>Date: {{formationDate}}</p>
+      
+      <div style="margin-top: 40px;">
+        <div class="signature-line"></div>
+        <p><strong>{{organizerName}}</strong></p>
+        <p>Organizer</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 60px; padding: 20px; border: 1px solid #000;">
+    <p><strong>IMPORTANT TEXAS FILING INFORMATION:</strong></p>
+    <p style="margin-top: 10px;">
+      1. This Certificate must be filed with the Texas Secretary of State along with the required filing fee.<br>
+      2. The registered agent must be a Texas resident or a business entity authorized to do business in Texas.<br>
+      3. File IRS Form 2553 if electing S-Corporation tax treatment.<br>
+      4. Obtain an Employer Identification Number (EIN) from the IRS.<br>
+      5. Texas LLCs are subject to franchise tax and must file an annual Public Information Report (PIR).<br>
+      6. No publication requirement in Texas.<br>
+      7. The company name must contain "Limited Liability Company," "Limited Company," or an abbreviation (LLC, L.L.C., LC, or L.C.).
+    </p>
+  </div>
+</body>
+</html>
