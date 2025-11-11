@@ -11,6 +11,7 @@ import { config } from 'dotenv'
 import rateLimit from 'express-rate-limit'
 import { checkDatabaseHealth } from '@legal-commons/core'
 import authRoutes from './routes/auth'
+import llcRoutes from './routes/llc'
 
 // Load environment variables
 config()
@@ -65,6 +66,7 @@ app.get('/health', async (_req, res) => {
 
 // API routes
 app.use('/api/auth', authLimiter, authRoutes)
+app.use('/api/llc', llcRoutes)
 
 // API documentation placeholder
 app.get('/api-docs', (_req, res) => {

@@ -140,7 +140,7 @@ export interface LLCFormData {
   // Step 2: Company Information
   companyName: string
   businessPurpose: string
-  formationDate: string | null
+  formationDate?: string | null
 
   // Step 3: Registered Agent
   agentName: string
@@ -154,29 +154,73 @@ export interface LLCFormData {
   officeCity: string
   officeState: string
   officeZip: string
-  sameAsAgent: boolean
+  sameAsAgent?: boolean
 
   // Step 5: Management Structure
   managementType: 'member-managed' | 'manager-managed'
-  hasSeries: boolean
-  professionalLlc: boolean
-  taxClassification: string | null
+  hasSeries?: boolean
+  professionalLlc?: boolean
+  taxClassification?: string | null
 
   // Step 6: Members
   members: Array<{
-    memberType: 'individual' | 'entity'
+    memberType?: 'individual' | 'entity'
     name: string
-    title: string | null
-    email: string | null
-    phone: string | null
+    title?: string | null
+    email?: string | null
+    phone?: string | null
     street: string
     city: string
     state: string
     zip: string
-    entityType: string | null
-    entityState: string | null
+    entityType?: string | null
+    entityState?: string | null
     ownershipPercentage: number
     isManager: boolean
-    capitalContribution: number | null
+    capitalContribution?: number | null
   }>
+}
+
+// Database Insert Types
+export interface LLCCompanyInsert {
+  document_id: string
+  user_id: string
+  company_name: string
+  state: string
+  business_purpose: string
+  formation_date?: Date | null
+  agent_name: string
+  agent_street: string
+  agent_city: string
+  agent_state: string
+  agent_zip: string
+  office_street: string
+  office_city: string
+  office_state: string
+  office_zip: string
+  management_type: 'member-managed' | 'manager-managed'
+  has_series?: boolean
+  professional_llc?: boolean
+  tax_classification?: string | null
+  metadata?: Record<string, unknown> | null
+}
+
+export interface LLCMemberInsert {
+  llc_company_id: string
+  member_type?: 'individual' | 'entity'
+  name: string
+  title?: string | null
+  email?: string | null
+  phone?: string | null
+  street: string
+  city: string
+  state: string
+  zip: string
+  entity_type?: string | null
+  entity_state?: string | null
+  ownership_percentage: number
+  is_manager: boolean
+  display_order?: number
+  capital_contribution?: number | null
+  metadata?: Record<string, unknown> | null
 }
