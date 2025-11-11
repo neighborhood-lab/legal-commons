@@ -45,6 +45,7 @@ export default [
         navigator: 'readonly',
         localStorage: 'readonly',
         FormData: 'readonly',
+        HTMLFormElement: 'readonly',
         fetch: 'readonly',
         Response: 'readonly',
         Request: 'readonly',

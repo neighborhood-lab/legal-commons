@@ -82,3 +82,101 @@ export interface Jurisdiction {
   createdAt: Date
   updatedAt: Date
 }
+
+// LLC Formation Types
+export interface LLCCompany {
+  id: string
+  documentId: string
+  userId: string
+  companyName: string
+  state: string
+  businessPurpose: string
+  formationDate: Date | null
+  agentName: string
+  agentStreet: string
+  agentCity: string
+  agentState: string
+  agentZip: string
+  officeStreet: string
+  officeCity: string
+  officeState: string
+  officeZip: string
+  managementType: 'member-managed' | 'manager-managed'
+  hasSeries: boolean
+  professionalLlc: boolean
+  taxClassification: string | null
+  metadata: Record<string, unknown> | null
+  createdAt: Date
+  updatedAt: Date
+}
+
+export interface LLCMember {
+  id: string
+  llcCompanyId: string
+  memberType: 'individual' | 'entity'
+  name: string
+  title: string | null
+  email: string | null
+  phone: string | null
+  street: string
+  city: string
+  state: string
+  zip: string
+  entityType: string | null
+  entityState: string | null
+  ownershipPercentage: number
+  isManager: boolean
+  displayOrder: number
+  capitalContribution: number | null
+  metadata: Record<string, unknown> | null
+  createdAt: Date
+  updatedAt: Date
+}
+
+export interface LLCFormData {
+  // Step 1: State Selection
+  state: string
+
+  // Step 2: Company Information
+  companyName: string
+  businessPurpose: string
+  formationDate: string | null
+
+  // Step 3: Registered Agent
+  agentName: string
+  agentStreet: string
+  agentCity: string
+  agentState: string
+  agentZip: string
+
+  // Step 4: Principal Office
+  officeStreet: string
+  officeCity: string
+  officeState: string
+  officeZip: string
+  sameAsAgent: boolean
+
+  // Step 5: Management Structure
+  managementType: 'member-managed' | 'manager-managed'
+  hasSeries: boolean
+  professionalLlc: boolean
+  taxClassification: string | null
+
+  // Step 6: Members
+  members: Array<{
+    memberType: 'individual' | 'entity'
+    name: string
+    title: string | null
+    email: string | null
+    phone: string | null
+    street: string
+    city: string
+    state: string
+    zip: string
+    entityType: string | null
+    entityState: string | null
+    ownershipPercentage: number
+    isManager: boolean
+    capitalContribution: number | null
+  }>
+}

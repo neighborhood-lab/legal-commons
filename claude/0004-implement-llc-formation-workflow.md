@@ -2,8 +2,8 @@
 
 ## Status
 
-- [x] To Do
-- [ ] In Progress
+- [ ] To Do
+- [x] In Progress
 - [ ] Completed
 
 ## Priority
