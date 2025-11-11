@@ -104,6 +104,19 @@ dist
 # vitepress cache directory
 **/.vitepress/cache
 
+# Turbo
+.turbo
+
+# TypeScript
+*.tsbuildinfo
+
+# Playwright
+playwright-report/
+test-results/
+
+# Vercel
+.vercel
+
 # Docusaurus cache and generated files
 .docusaurus
 

@@ -1,0 +1,48 @@
+{
+  "name": "@legal-commons/core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Core business logic, database, and shared utilities for Legal Commons",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc && tsc-alias",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
+    "migrate": "tsx scripts/migrate.ts",
+    "migrate:make": "tsx scripts/make-migration.ts",
+    "migrate:rollback": "tsx scripts/rollback.ts",
+    "migrate:status": "tsx scripts/migration-status.ts",
+    "seed": "tsx scripts/seed.ts",
+    "seed:demo": "tsx scripts/seed-demo.ts",
+    "db:nuke": "tsx scripts/nuke-db.ts"
+  },
+  "dependencies": {
+    "@vercel/postgres": "0.10.0",
+    "bcrypt": "6.0.0",
+    "dotenv": "16.4.7",
+    "isomorphic-dompurify": "2.31.0",
+    "jsonwebtoken": "9.0.2",
+    "knex": "3.1.0",
+    "pg": "8.16.3",
+    "pino": "10.1.0",
+    "redis": "5.9.0",
+    "zod": "4.1.12",
+    "zxcvbn": "4.4.2"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "5.0.2",
+    "@types/jsonwebtoken": "9.0.7",
+    "@types/pg": "8.11.10",
+    "@vitest/coverage-v8": "4.0.8",
+    "happy-dom": "20.0.10",
+    "tsx": "4.19.2",
+    "vitest": "4.0.8"
+  }
+}

@@ -1,8 +1,8 @@
 # Task 0000: Setup Monorepo Structure
 
 ## Status
-- [x] To Do
-- [ ] In Progress
+- [ ] To Do
+- [x] In Progress
 - [ ] Completed
 
 ## Priority
