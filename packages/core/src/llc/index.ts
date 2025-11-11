@@ -124,6 +124,70 @@ export async function createLLCCompany(
 }
 
 /**
+ * List all LLC companies for a user with pagination
+ */
+export async function listLLCCompanies(
+  userId: string,
+  options: {
+    page?: number
+    limit?: number
+    state?: string
+    search?: string
+  } = {}
+): Promise<{
+  companies: Array<LLCCompany & { memberCount: number }>
+  total: number
+  page: number
+  limit: number
+  totalPages: number
+}> {
+  const page = options.page ?? 1
+  const limit = options.limit ?? 10
+  const offset = (page - 1) * limit
+
+  let query = db('llc_companies')
+    .where({ user_id: userId })
+    .select(
+      'llc_companies.*',
+      db.raw('COUNT(llc_members.id) as member_count')
+    )
+    .leftJoin('llc_members', 'llc_companies.id', 'llc_members.llc_company_id')
+    .groupBy('llc_companies.id')
+
+  // Filter by state if provided
+  if (options.state) {
+    query = query.where('llc_companies.state', options.state)
+  }
+
+  // Search by company name if provided
+  if (options.search) {
+    query = query.where('llc_companies.company_name', 'ilike', `%${options.search}%`)
+  }
+
+  // Get total count (before pagination)
+  const countQuery = query.clone().clearSelect().clearGroup().count('* as count')
+  const countResult = await countQuery
+  const total = Number((countResult[0] as any)?.count || 0)
+
+  // Apply pagination
+  const companies = await query
+    .orderBy('llc_companies.created_at', 'desc')
+    .limit(limit)
+    .offset(offset)
+
+  return {
+    companies: companies.map((c: any) => ({
+      ...c,
+      memberCount: Number(c.member_count || 0),
+    })),
+    total,
+    page,
+    limit,
+    totalPages: Math.ceil(total / limit),
+  }
+}
+
+/**
  * Get LLC company by ID (with authorization check)
  */
 export async function getLLCCompanyById(

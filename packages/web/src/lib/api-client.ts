@@ -108,6 +108,33 @@ class ApiClient {
   async logout(): Promise<void> {
     this.setTokens(null)
   }
+
+  // Generic HTTP methods
+  async get<T>(endpoint: string): Promise<T> {
+    return this.request(endpoint, {
+      method: 'GET',
+    })
+  }
+
+  async post<T>(endpoint: string, body?: unknown): Promise<T> {
+    return this.request(endpoint, {
+      method: 'POST',
+      body: body ? JSON.stringify(body) : undefined,
+    })
+  }
+
+  async patch<T>(endpoint: string, body?: unknown): Promise<T> {
+    return this.request(endpoint, {
+      method: 'PATCH',
+      body: body ? JSON.stringify(body) : undefined,
+    })
+  }
+
+  async delete<T>(endpoint: string): Promise<T> {
+    return this.request(endpoint, {
+      method: 'DELETE',
+    })
+  }
 }
 
 export const apiClient = new ApiClient()
