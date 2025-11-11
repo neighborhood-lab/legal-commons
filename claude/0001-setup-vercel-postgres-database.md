@@ -1,8 +1,8 @@
 # Task 0001: Setup Vercel Postgres Database
 
 ## Status
-- [x] To Do
-- [ ] In Progress
+- [ ] To Do
+- [x] In Progress
 - [ ] Completed
 
 ## Priority
