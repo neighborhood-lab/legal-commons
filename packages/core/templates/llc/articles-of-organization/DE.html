@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate of Formation - {{companyName}}</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.6;
+      margin: 40px;
+      color: #000;
+    }
+    h1 {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    h2 {
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    p {
+      margin: 10px 0;
+      text-align: justify;
+    }
+    .article {
+      margin: 20px 0;
+    }
+    .signature-section {
+      margin-top: 50px;
+      page-break-inside: avoid;
+    }
+    .signature-line {
+      border-top: 1px solid #000;
+      width: 300px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h1>CERTIFICATE OF FORMATION<br>OF<br>{{companyName}}<br>(A Delaware Limited Liability Company)</h1>
+
+  <p style="text-align: center; margin-bottom: 30px;">
+    This Certificate of Formation of {{companyName}} (the "Limited Liability Company"), dated {{formationDate}}, is being duly executed and filed by the undersigned authorized person to form a limited liability company under the Delaware Limited Liability Company Act (6 Del. C. § 18-101, et seq.).
+  </p>
+
+  <div class="article">
+    <h2>FIRST: NAME</h2>
+    <p>The name of the limited liability company is {{companyName}}.</p>
+  </div>
+
+  <div class="article">
+    <h2>SECOND: REGISTERED OFFICE</h2>
+    <p>The address of the registered office of the Limited Liability Company in the State of Delaware is:</p>
+    <p style="margin-left: 40px;">
+      {{agentAddress}}<br>
+      {{agentCity}}, Delaware {{agentZip}}<br>
+      County of {{county}}
+    </p>
+  </div>
+
+  <div class="article">
+    <h2>THIRD: REGISTERED AGENT</h2>
+    <p>The name of the registered agent for service of process on the Limited Liability Company in the State of Delaware at such address is:</p>
+    <p style="margin-left: 40px;">
+      <strong>{{agentName}}</strong>
+    </p>
+  </div>
+
+  <div class="article">
+    <h2>FOURTH: PURPOSE</h2>
+    <p>The purpose of the Limited Liability Company is to engage in {{businessPurpose}}, and to engage in any lawful act or activity for which limited liability companies may be formed under the Delaware Limited Liability Company Act.</p>
+  </div>
+
+  <div class="article">
+    <h2>FIFTH: MANAGEMENT</h2>
+    {{#if isMemberManaged}}
+    <p>The Limited Liability Company shall be managed by its members.</p>
+    {{else}}
+    <p>The Limited Liability Company shall be managed by one or more managers.</p>
+    {{/if}}
+  </div>
+
+  <div class="signature-section">
+    <p><strong>IN WITNESS WHEREOF,</strong> the undersigned authorized person has executed this Certificate of Formation of {{companyName}} on {{formationDate}}.</p>
+    
+    <div style="margin-top: 60px;">
+      <div class="signature-line"></div>
+      <p><strong>{{organizerName}}</strong></p>
+      <p>Authorized Person</p>
+      <p style="font-size: 12px; margin-top: 20px;">
+        Name: {{organizerName}}<br>
+        Address: {{organizerAddress}}
+      </p>
+    </div>
+  </div>
+
+  <div style="margin-top: 60px; padding: 20px; border: 1px solid #000;">
+    <p><strong>IMPORTANT DELAWARE FILING INFORMATION:</strong></p>
+    <p style="margin-top: 10px;">
+      1. This Certificate must be filed with the Delaware Secretary of State, Division of Corporations along with the required filing fee.<br>
+      2. The registered agent must be located in Delaware and can be an individual resident of Delaware or a business entity authorized to do business in Delaware.<br>
+      3. File IRS Form 2553 if electing S-Corporation tax treatment.<br>
+      4. Obtain an Employer Identification Number (EIN) from the IRS.<br>
+      5. Delaware LLCs must pay an annual franchise tax of $300 to the Delaware Division of Corporations.<br>
+      6. No publication requirement in Delaware.<br>
+      7. Delaware offers strong legal protections and a well-established body of business law.<br>
+      8. An LLC Agreement should be adopted, though Delaware does not require it to be filed with the state.<br>
+      9. The company name must contain the words "Limited Liability Company" or the abbreviation "L.L.C." or "LLC."
+    </p>
+  </div>
+</body>
+</html>

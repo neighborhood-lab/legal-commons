@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Articles of Organization - {{companyName}}</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.6;
+      margin: 40px;
+      color: #000;
+    }
+    h1 {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    h2 {
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    p {
+      margin: 10px 0;
+      text-align: justify;
+    }
+    .article {
+      margin: 20px 0;
+    }
+    .signature-section {
+      margin-top: 50px;
+      page-break-inside: avoid;
+    }
+    .signature-line {
+      border-top: 1px solid #000;
+      width: 300px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ARTICLES OF ORGANIZATION<br>OF<br>{{companyName}}<br>(A Florida Limited Liability Company)</h1>
+
+  <div class="article">
+    <h2>ARTICLE 1: NAME</h2>
+    <p>The name of the limited liability company is {{companyName}}.</p>
+  </div>
+
+  <div class="article">
+    <h2>ARTICLE 2: PRINCIPAL OFFICE ADDRESS</h2>
+    <p>The mailing address and street address of the principal office of the limited liability company is:</p>
+    <p style="margin-left: 40px;">
+      {{officeAddress}}<br>
+      {{officeCity}}, Florida {{officeZip}}
+    </p>
+  </div>
+
+  <div class="article">
+    <h2>ARTICLE 3: REGISTERED AGENT AND OFFICE</h2>
+    <p>The name and Florida street address of the registered agent and registered office is:</p>
+    <p style="margin-left: 40px;">
+      <strong>Name:</strong> {{agentName}}<br>
+      <strong>Address:</strong><br>
+      {{agentAddress}}<br>
+      {{agentCity}}, Florida {{agentZip}}
+    </p>
+    <p>Having been named as registered agent and to accept service of process for the above stated limited liability company at the place designated in this certificate, I hereby accept the appointment as registered agent and agree to act in this capacity.</p>
+  </div>
+
+  <div class="article">
+    <h2>ARTICLE 4: MANAGEMENT</h2>
+    {{#if isMemberManaged}}
+    <p>The limited liability company is to be managed by its members.</p>
+    {{else}}
+    <p>The limited liability company is to be managed by a manager or managers.</p>
+    {{/if}}
+  </div>
+
+  <div class="article">
+    <h2>ARTICLE 5: PURPOSE</h2>
+    <p>The purpose for which the limited liability company is organized is to engage in {{businessPurpose}}, and to transact any or all lawful business for which limited liability companies may be organized under the Florida Revised Limited Liability Company Act.</p>
+  </div>
+
+  <div class="article">
+    <h2>ARTICLE 6: DURATION</h2>
+    <p>The latest date on which the limited liability company must dissolve is perpetual.</p>
+  </div>
+
+  <div class="article">
+    <h2>ARTICLE 7: AUTHORIZED PERSON</h2>
+    <p>The name and address of the authorized person(s) who execute these Articles of Organization:</p>
+    <p style="margin-left: 40px;">
+      <strong>{{organizerName}}</strong><br>
+      {{organizerAddress}}
+    </p>
+  </div>
+
+  <div class="signature-section">
+    <p><strong>REQUIRED SIGNATURE:</strong></p>
+    <p>These Articles of Organization shall become effective upon filing with the Florida Department of State.</p>
+    
+    <div style="margin-top: 60px;">
+      <div class="signature-line"></div>
+      <p><strong>{{organizerName}}</strong></p>
+      <p>Authorized Person</p>
+      
+      <div style="margin-top: 30px;">
+        Date: {{formationDate}}
+      </div>
+    </div>
+
+    <div style="margin-top: 60px;">
+      <p><strong>REGISTERED AGENT SIGNATURE:</strong></p>
+      <p>I hereby accept the designation as registered agent for the above-named limited liability company.</p>
+      
+      <div style="margin-top: 40px;">
+        <div class="signature-line"></div>
+        <p><strong>{{agentName}}</strong></p>
+        <p>Registered Agent</p>
+        
+        <div style="margin-top: 30px;">
+          Date: <div class="signature-line" style="display: inline-block; width: 200px; margin-left: 20px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 60px; padding: 20px; border: 1px solid #000;">
+    <p><strong>IMPORTANT FLORIDA FILING INFORMATION:</strong></p>
+    <p style="margin-top: 10px;">
+      1. These Articles must be filed with the Florida Department of State, Division of Corporations along with the required filing fee.<br>
+      2. The registered agent must be a Florida resident or a business entity authorized to transact business in Florida.<br>
+      3. File IRS Form 2553 if electing S-Corporation tax treatment.<br>
+      4. Obtain an Employer Identification Number (EIN) from the IRS.<br>
+      5. An Annual Report must be filed each year with the Florida Department of State.<br>
+      6. No publication requirement in Florida.<br>
+      7. Florida has no state income tax on LLCs.<br>
+      8. The company name must contain the words "Limited Liability Company" or the abbreviation "L.L.C." or "LLC."
+    </p>
+  </div>
+</body>
+</html>

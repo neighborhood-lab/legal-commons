@@ -67,6 +67,10 @@ export interface TemplateData {
   
   // Organizer (typically first member/manager)
   organizerName: string
+  organizerAddress?: string
+  
+  // State-specific fields
+  county?: string  // Required for NY and DE
 }
 
 /**
@@ -99,6 +103,9 @@ export function prepareTemplateData(
         day: 'numeric'
       })
   
+  // Extract metadata if available
+  const metadata = company.metadata || {}
+  
   const data: TemplateData = {
     companyName: company.company_name || company.companyName,
     state: company.state,
@@ -115,6 +122,8 @@ export function prepareTemplateData(
     officeZip: company.office_zip || company.officeZip,
     isMemberManaged,
     organizerName: firstMember.name,
+    organizerAddress: `${firstMember.street}, ${firstMember.city}, ${firstMember.state} ${firstMember.zip}`,
+    county: metadata.county, // Optional field for states that require it (NY, DE)
   }
   
   // For single-member LLCs

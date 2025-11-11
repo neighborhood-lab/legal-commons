@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Articles of Organization - {{companyName}}</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.6;
+      margin: 40px;
+      color: #000;
+    }
+    h1 {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    h2 {
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    p {
+      margin: 10px 0;
+      text-align: justify;
+    }
+    .article {
+      margin: 20px 0;
+    }
+    .signature-section {
+      margin-top: 50px;
+      page-break-inside: avoid;
+    }
+    .signature-line {
+      border-top: 1px solid #000;
+      width: 300px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ARTICLES OF ORGANIZATION<br>OF<br>{{companyName}}<br>(A New York Limited Liability Company)</h1>
+
+  <div class="article">
+    <h2>FIRST: NAME</h2>
+    <p>The name of the limited liability company is {{companyName}}.</p>
+  </div>
+
+  <div class="article">
+    <h2>SECOND: COUNTY</h2>
+    <p>The county within New York State in which the office of the limited liability company is to be located is {{county}}.</p>
+  </div>
+
+  <div class="article">
+    <h2>THIRD: REGISTERED AGENT</h2>
+    <p>The Secretary of State is designated as agent of the limited liability company upon whom process against it may be served. The post office address within or without this state to which the Secretary of State shall mail a copy of any process against the limited liability company served upon him or her is:</p>
+    <p style="margin-left: 40px;">
+      {{companyName}}<br>
+      {{agentAddress}}<br>
+      {{agentCity}}, New York {{agentZip}}
+    </p>
+  </div>
+
+  <div class="article">
+    <h2>FOURTH: PURPOSE</h2>
+    <p>The purpose of the limited liability company is to engage in {{businessPurpose}}, and any lawful act or activity for which limited liability companies may be organized under the New York Limited Liability Company Law.</p>
+  </div>
+
+  <div class="article">
+    <h2>FIFTH: MANAGEMENT</h2>
+    {{#if isMemberManaged}}
+    <p>The limited liability company is to be managed by its members.</p>
+    {{else}}
+    <p>The limited liability company is to be managed by one or more managers.</p>
+    {{/if}}
+  </div>
+
+  <div class="article">
+    <h2>SIXTH: DURATION</h2>
+    <p>The latest date on which the limited liability company is to dissolve is perpetual.</p>
+  </div>
+
+  <div class="signature-section">
+    <p><strong>IN WITNESS WHEREOF,</strong> the undersigned organizer(s) has/have executed these Articles of Organization on {{formationDate}}.</p>
+    
+    <div style="margin-top: 60px;">
+      <div class="signature-line"></div>
+      <p><strong>{{organizerName}}</strong></p>
+      <p>Organizer</p>
+      <p>Address: {{organizerAddress}}</p>
+      
+      <div style="margin-top: 30px;">
+        Date: <div class="signature-line" style="display: inline-block; width: 200px; margin-left: 20px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 60px; padding: 20px; border: 1px solid #000;">
+    <p><strong>IMPORTANT NEW YORK FILING INFORMATION:</strong></p>
+    <p style="margin-top: 10px;">
+      1. These Articles must be filed with the New York Department of State, Division of Corporations along with the required filing fee.<br>
+      2. <strong>PUBLICATION REQUIREMENT:</strong> Within 120 days of formation, the LLC must publish a copy of the Articles of Organization (or a notice thereof) once a week for six consecutive weeks in two newspapers designated by the county clerk. An Affidavit of Publication must then be filed with the Department of State within 120 days.<br>
+      3. File IRS Form 2553 if electing S-Corporation tax treatment.<br>
+      4. Obtain an Employer Identification Number (EIN) from the IRS.<br>
+      5. A Biennial Statement must be filed every two years with the Department of State.<br>
+      6. If doing business in NYC, additional filing may be required with the NYC Department of Consumer Affairs.
+    </p>
+  </div>
+</body>
+</html>
