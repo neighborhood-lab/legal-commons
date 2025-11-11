@@ -1,0 +1,82 @@
+{
+  "hero": {
+    "title": "Form Your LLC in Minutes, Not Months",
+    "subtitle": "Affordable, accessible legal document preparation for entrepreneurs. No lawyer required. Support for CA, NY, TX, FL, and DE. Spanish language available.",
+    "cta_register": "Get Started Free",
+    "cta_login": "Sign In",
+    "cta_dashboard": "Go to Dashboard"
+  },
+  "features": {
+    "title": "Why Legal Commons?",
+    "subtitle": "We believe everyone should have access to legal services, regardless of income or language.",
+    "fast": {
+      "title": "Fast",
+      "description": "Complete your LLC formation in 10 minutes. Instant document generation with professional templates."
+    },
+    "affordable": {
+      "title": "Affordable",
+      "description": "Free document generation. Pay only state filing fees ($90-$300). No $500-2000 lawyer fees."
+    },
+    "accessible": {
+      "title": "Accessible",
+      "description": "Spanish language support. Plain English explanations. Mobile-friendly. Built for everyone."
+    }
+  },
+  "how_it_works": {
+    "title": "How It Works",
+    "step1": {
+      "title": "Fill Out Form",
+      "description": "Answer simple questions about your business. We'll guide you through every step with plain language explanations."
+    },
+    "step2": {
+      "title": "Generate Documents",
+      "description": "We instantly create your Articles of Organization and Operating Agreement using professional legal templates."
+    },
+    "step3": {
+      "title": "File with State",
+      "description": "Download your documents and follow our filing instructions. Your LLC will be official in days, not months."
+    }
+  },
+  "states": {
+    "title": "Supported States",
+    "subtitle": "Form your LLC in any of these states with state-specific templates and requirements",
+    "california": "California",
+    "new_york": "New York",
+    "texas": "Texas",
+    "florida": "Florida",
+    "delaware": "Delaware",
+    "filing_fee": "Filing Fee: ${{fee}}"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "question1": {
+      "question": "What is an LLC and do I need one?",
+      "answer": "An LLC (Limited Liability Company) protects your personal assets from business debts and lawsuits. If you're starting a business, freelancing, or managing rental properties, an LLC provides legal protection and tax benefits."
+    },
+    "question2": {
+      "question": "How much does it cost to form an LLC?",
+      "answer": "Legal Commons provides free document generation. You only pay state filing fees ($70-$300 depending on your state). Compare that to lawyers who charge $500-$2,000 or services like LegalZoom that charge $300+ in addition to state fees."
+    },
+    "question3": {
+      "question": "Do I need a lawyer to form an LLC?",
+      "answer": "No! Our platform guides you through the entire process with simple questions and generates state-compliant legal documents. We use the same templates lawyers use. You can form your LLC yourself and save thousands of dollars."
+    },
+    "question4": {
+      "question": "How long does it take to form an LLC?",
+      "answer": "You can complete our form in about 10 minutes. After you file your documents with the state, approval typically takes 1-2 weeks depending on the state. Some states offer expedited processing for an additional fee."
+    },
+    "question5": {
+      "question": "What states do you support?",
+      "answer": "We currently support California, New York, Texas, Florida, and Delaware. These states represent over 40% of all US businesses. We're continuously expanding to more states."
+    },
+    "question6": {
+      "question": "Is Legal Commons available in Spanish?",
+      "answer": "Yes! We offer full Spanish language support for the entire platform. Use the language switcher in the header to switch between English and Spanish (Español)."
+    }
+  },
+  "cta": {
+    "title": "Ready to get started?",
+    "subtitle": "Create your account today and access affordable legal services.",
+    "button": "Create Free Account"
+  }
+}
