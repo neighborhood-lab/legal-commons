@@ -3,19 +3,19 @@
  * Displays progress through a multi-step form with accessibility support
  */
 
-import { Check } from 'lucide-react';
+import { Check } from 'lucide-react'
 
 export interface Step {
-  id: string;
-  title: string;
-  description?: string;
+  id: string
+  title: string
+  description?: string
 }
 
 interface StepperProps {
-  steps: Step[];
-  currentStep: number;
+  steps: Step[]
+  currentStep: number
   // eslint-disable-next-line no-unused-vars
-  onStepClick?: (stepIndex: number) => void;
+  onStepClick?: (stepIndex: number) => void
 }
 
 export function Stepper({ steps, currentStep, onStepClick }: StepperProps) {
@@ -23,22 +23,17 @@ export function Stepper({ steps, currentStep, onStepClick }: StepperProps) {
     <nav aria-label="Progress" className="w-full">
       <ol role="list" className="flex items-center justify-between space-x-2 md:space-x-4">
         {steps.map((step, index) => {
-          const isComplete = index < currentStep;
-          const isCurrent = index === currentStep;
-          const isClickable = onStepClick && index < currentStep;
+          const isComplete = index < currentStep
+          const isCurrent = index === currentStep
+          const isClickable = onStepClick && index < currentStep
 
           return (
-            <li
-              key={step.id}
-              className="flex-1"
-            >
+            <li key={step.id} className="flex-1">
               <button
                 type="button"
                 onClick={() => isClickable && onStepClick(index)}
                 disabled={!isClickable}
-                className={`group w-full ${
-                  isClickable ? 'cursor-pointer' : 'cursor-default'
-                }`}
+                className={`group w-full ${isClickable ? 'cursor-pointer' : 'cursor-default'}`}
                 aria-current={isCurrent ? 'step' : undefined}
               >
                 <div className="flex flex-col items-center">
@@ -97,17 +92,15 @@ export function Stepper({ steps, currentStep, onStepClick }: StepperProps) {
                 >
                   <div
                     className={`h-full ${
-                      isComplete
-                        ? 'bg-primary-600'
-                        : 'bg-gray-300 dark:bg-gray-600'
+                      isComplete ? 'bg-primary-600' : 'bg-gray-300 dark:bg-gray-600'
                     }`}
                   />
                 </div>
               )}
             </li>
-          );
+          )
         })}
       </ol>
     </nav>
-  );
+  )
 }

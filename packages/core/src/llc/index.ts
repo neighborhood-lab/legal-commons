@@ -17,10 +17,7 @@ import type {
 export function validateOwnershipPercentages(
   members: { ownershipPercentage: number }[]
 ): string | null {
-  const total = members.reduce(
-    (sum, member) => sum + member.ownershipPercentage,
-    0
-  )
+  const total = members.reduce((sum, member) => sum + member.ownershipPercentage, 0)
 
   // Allow for floating point precision issues (within 0.01%)
   if (Math.abs(total - 100) > 0.01) {
@@ -89,9 +86,7 @@ export async function createLLCCompany(
       tax_classification: data.taxClassification,
     }
 
-    const [company] = await trx('llc_companies')
-      .insert(companyData)
-      .returning('*')
+    const [company] = await trx('llc_companies').insert(companyData).returning('*')
 
     if (!company) {
       throw new Error('Failed to create LLC company')
@@ -147,10 +142,7 @@ export async function listLLCCompanies(
 
   let query = db('llc_companies')
     .where({ user_id: userId })
-    .select(
-      'llc_companies.*',
-      db.raw('COUNT(llc_members.id) as member_count')
-    )
+    .select('llc_companies.*', db.raw('COUNT(llc_members.id) as member_count'))
     .leftJoin('llc_members', 'llc_companies.id', 'llc_members.llc_company_id')
     .groupBy('llc_companies.id')
 
@@ -194,9 +186,7 @@ export async function getLLCCompanyById(
   companyId: string,
   userId: string
 ): Promise<{ company: LLCCompany; members: LLCMember[] } | null> {
-  const company = await db('llc_companies')
-    .where({ id: companyId, user_id: userId })
-    .first()
+  const company = await db('llc_companies').where({ id: companyId, user_id: userId }).first()
 
   if (!company) {
     return null
@@ -228,12 +218,9 @@ export async function updateLLCCompany(
     const companyUpdate: Partial<LLCCompanyInsert> = {}
 
     if (data.companyName) companyUpdate.company_name = data.companyName
-    if (data.businessPurpose)
-      companyUpdate.business_purpose = data.businessPurpose
+    if (data.businessPurpose) companyUpdate.business_purpose = data.businessPurpose
     if (data.formationDate !== undefined)
-      companyUpdate.formation_date = data.formationDate
-        ? new Date(data.formationDate)
-        : null
+      companyUpdate.formation_date = data.formationDate ? new Date(data.formationDate) : null
     if (data.managementType) companyUpdate.management_type = data.managementType
     if (data.agentName) companyUpdate.agent_name = data.agentName
     if (data.agentStreet) companyUpdate.agent_street = data.agentStreet
@@ -245,8 +232,7 @@ export async function updateLLCCompany(
     if (data.officeState) companyUpdate.office_state = data.officeState
     if (data.officeZip) companyUpdate.office_zip = data.officeZip
     if (data.hasSeries !== undefined) companyUpdate.has_series = data.hasSeries
-    if (data.professionalLlc !== undefined)
-      companyUpdate.professional_llc = data.professionalLlc
+    if (data.professionalLlc !== undefined) companyUpdate.professional_llc = data.professionalLlc
     if (data.taxClassification !== undefined)
       companyUpdate.tax_classification = data.taxClassification
 
@@ -267,26 +253,24 @@ export async function updateLLCCompany(
       await trx('llc_members').where({ llc_company_id: companyId }).del()
 
       // Insert new members
-      const memberData: LLCMemberInsert[] = data.members.map(
-        (member, index) => ({
-          llc_company_id: companyId,
-          member_type: member.memberType ?? 'individual',
-          name: member.name,
-          title: member.title,
-          email: member.email,
-          phone: member.phone,
-          street: member.street,
-          city: member.city,
-          state: member.state,
-          zip: member.zip,
-          entity_type: member.entityType,
-          entity_state: member.entityState,
-          ownership_percentage: member.ownershipPercentage,
-          is_manager: member.isManager,
-          display_order: index,
-          capital_contribution: member.capitalContribution,
-        })
-      )
+      const memberData: LLCMemberInsert[] = data.members.map((member, index) => ({
+        llc_company_id: companyId,
+        member_type: member.memberType ?? 'individual',
+        name: member.name,
+        title: member.title,
+        email: member.email,
+        phone: member.phone,
+        street: member.street,
+        city: member.city,
+        state: member.state,
+        zip: member.zip,
+        entity_type: member.entityType,
+        entity_state: member.entityState,
+        ownership_percentage: member.ownershipPercentage,
+        is_manager: member.isManager,
+        display_order: index,
+        capital_contribution: member.capitalContribution,
+      }))
 
       await trx('llc_members').insert(memberData)
     }
@@ -309,10 +293,7 @@ export async function updateLLCCompany(
 /**
  * Delete LLC company (hard delete since no deleted_at column)
  */
-export async function deleteLLCCompany(
-  companyId: string,
-  userId: string
-): Promise<void> {
+export async function deleteLLCCompany(companyId: string, userId: string): Promise<void> {
   // Check authorization
   const existing = await getLLCCompanyById(companyId, userId)
   if (!existing) {
@@ -345,10 +326,8 @@ export async function addLLCMember(
   // Get current members to validate ownership
   const currentMembers = existing.members
   const newTotalOwnership =
-    currentMembers.reduce(
-      (sum, m) => sum + Number(m.ownershipPercentage),
-      0
-    ) + Number(memberData.ownership_percentage)
+    currentMembers.reduce((sum, m) => sum + Number(m.ownershipPercentage), 0) +
+    Number(memberData.ownership_percentage)
 
   if (Math.abs(newTotalOwnership - 100) > 0.01 && newTotalOwnership > 100) {
     throw new Error(
@@ -396,15 +375,11 @@ export async function updateLLCMember(
   if (memberData.ownership_percentage !== undefined) {
     const otherMembers = company.members.filter((m) => m.id !== memberId)
     const newTotal =
-      otherMembers.reduce(
-        (sum, m) => sum + Number(m.ownershipPercentage),
-        0
-      ) + Number(memberData.ownership_percentage)
+      otherMembers.reduce((sum, m) => sum + Number(m.ownershipPercentage), 0) +
+      Number(memberData.ownership_percentage)
 
     if (Math.abs(newTotal - 100) > 0.01) {
-      throw new Error(
-        `Ownership percentages must total 100%, would be ${newTotal.toFixed(2)}%`
-      )
+      throw new Error(`Ownership percentages must total 100%, would be ${newTotal.toFixed(2)}%`)
     }
   }
 
@@ -423,10 +398,7 @@ export async function updateLLCMember(
 /**
  * Remove LLC member (hard delete)
  */
-export async function removeLLCMember(
-  memberId: string,
-  userId: string
-): Promise<void> {
+export async function removeLLCMember(memberId: string, userId: string): Promise<void> {
   // Get member
   const member = await db('llc_members').where({ id: memberId }).first()
 

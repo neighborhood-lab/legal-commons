@@ -8,10 +8,7 @@ import { validateOwnershipPercentages } from '../index'
 describe('LLC Formation', () => {
   describe('validateOwnershipPercentages', () => {
     it('should return null for valid ownership totaling 100%', () => {
-      const members = [
-        { ownershipPercentage: 60 },
-        { ownershipPercentage: 40 },
-      ]
+      const members = [{ ownershipPercentage: 60 }, { ownershipPercentage: 40 }]
 
       const error = validateOwnershipPercentages(members)
       expect(error).toBeNull()
@@ -29,10 +26,7 @@ describe('LLC Formation', () => {
     })
 
     it('should return error for ownership less than 100%', () => {
-      const members = [
-        { ownershipPercentage: 60 },
-        { ownershipPercentage: 30 },
-      ]
+      const members = [{ ownershipPercentage: 60 }, { ownershipPercentage: 30 }]
 
       const error = validateOwnershipPercentages(members)
       expect(error).toContain('must total 100%')
@@ -40,10 +34,7 @@ describe('LLC Formation', () => {
     })
 
     it('should return error for ownership greater than 100%', () => {
-      const members = [
-        { ownershipPercentage: 60 },
-        { ownershipPercentage: 50 },
-      ]
+      const members = [{ ownershipPercentage: 60 }, { ownershipPercentage: 50 }]
 
       const error = validateOwnershipPercentages(members)
       expect(error).toContain('must total 100%')
@@ -58,10 +49,7 @@ describe('LLC Formation', () => {
     })
 
     it('should handle floating point precision (99.99%)', () => {
-      const members = [
-        { ownershipPercentage: 99.99 },
-        { ownershipPercentage: 0.01 },
-      ]
+      const members = [{ ownershipPercentage: 99.99 }, { ownershipPercentage: 0.01 }]
 
       const error = validateOwnershipPercentages(members)
       expect(error).toBeNull()

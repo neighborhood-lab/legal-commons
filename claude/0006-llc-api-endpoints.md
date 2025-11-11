@@ -75,6 +75,7 @@ Implement backend API endpoints for LLC formation workflow CRUD operations. This
 Implemented complete backend API for LLC formation workflow with the following components:
 
 **Business Logic Functions** (`packages/core/src/llc/index.ts`):
+
 - `createLLCCompany()` - Creates LLC with members and auto-generates document record
 - `getLLCCompanyById()` - Retrieves LLC with authorization check
 - `updateLLCCompany()` - Updates LLC and members atomically (transaction)
@@ -85,6 +86,7 @@ Implemented complete backend API for LLC formation workflow with the following c
 - `validateOwnershipPercentages()` - Validates ownership totals 100% (±0.01%)
 
 **API Endpoints** (`packages/app/src/routes/llc.ts`):
+
 - `POST /api/llc/companies` - Create new LLC
 - `GET /api/llc/companies/:id` - Get LLC by ID
 - `PATCH /api/llc/companies/:id` - Update LLC
@@ -94,6 +96,7 @@ Implemented complete backend API for LLC formation workflow with the following c
 - `DELETE /api/llc/members/:id` - Remove member
 
 **Key Features**:
+
 - All endpoints require authentication via JWT
 - Authorization checks ensure users can only access their own LLCs
 - Zod validation schemas for request validation
@@ -103,6 +106,7 @@ Implemented complete backend API for LLC formation workflow with the following c
 - TypeScript Insert types with snake_case for database operations
 
 **Testing**:
+
 - 7 new unit tests for ownership validation
 - Total: 22 tests passing
 - All quality checks passing (lint, typecheck, test, build)
@@ -153,6 +157,7 @@ Implemented complete backend API for LLC formation workflow with the following c
 ### Integration with Frontend
 
 Frontend can now:
+
 1. Submit LLC formation questionnaire to `POST /api/llc/companies`
 2. Save draft by creating incomplete LLC record
 3. Update LLC data with `PATCH /api/llc/companies/:id`
@@ -167,6 +172,7 @@ Next step (Task 0007) will add document generation endpoints that use this API t
 
 **POST /api/llc/companies**
 Request:
+
 ```json
 {
   "state": "CA",
@@ -208,6 +214,7 @@ Request:
 ```
 
 Response:
+
 ```json
 {
   "id": 123,

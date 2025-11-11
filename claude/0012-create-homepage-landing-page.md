@@ -2,8 +2,8 @@
 
 ## Status
 
-- [x] To Do
-- [ ] In Progress
+- [ ] To Do
+- [x] In Progress
 - [ ] Completed
 
 ## Priority
@@ -43,6 +43,7 @@ Build a compelling homepage/landing page that introduces Legal Commons, explains
 **Subheadline**: "Affordable, accessible legal document preparation for entrepreneurs. No lawyer required."
 
 **Value Props**:
+
 1. **Fast**: Complete in 10 minutes
 2. **Affordable**: Free or low-cost (vs. $500-2000 with lawyers)
 3. **Accessible**: Spanish language support, plain English explanations
@@ -73,10 +74,16 @@ Build a compelling homepage/landing page that introduces Legal Commons, explains
 
 ```html
 <title>Legal Commons - Affordable LLC Formation | Form Your Business Today</title>
-<meta name="description" content="Form your LLC in minutes with Legal Commons. Affordable, accessible legal document preparation for entrepreneurs. Support for CA, NY, TX, FL, and DE. Spanish language available." />
+<meta
+  name="description"
+  content="Form your LLC in minutes with Legal Commons. Affordable, accessible legal document preparation for entrepreneurs. Support for CA, NY, TX, FL, and DE. Spanish language available."
+/>
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Legal Commons - Affordable LLC Formation" />
-<meta property="og:description" content="Form your LLC in minutes. Affordable and accessible for everyone." />
+<meta
+  property="og:description"
+  content="Form your LLC in minutes. Affordable and accessible for everyone."
+/>
 ```
 
 ## Related Tasks

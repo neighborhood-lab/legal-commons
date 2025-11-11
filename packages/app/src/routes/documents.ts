@@ -47,9 +47,12 @@ router.get('/llc/companies/:id/documents', async (req, res) => {
     res.json({
       companyId: id,
       companyName: (llc.company as any).company_name || (llc.company as any).companyName,
-      availableDocuments: availableDocuments.map(type => ({
+      availableDocuments: availableDocuments.map((type) => ({
         type,
-        name: type.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
+        name: type
+          .split('-')
+          .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+          .join(' '),
       })),
     })
   } catch (error) {
@@ -85,7 +88,7 @@ router.post('/llc/companies/:id/documents/generate', async (req, res) => {
 
     // Generate the first document type (for simplicity)
     const documentType = types[0]
-    
+
     if (!documentType) {
       res.status(400).json({ error: 'No document type specified' })
       return

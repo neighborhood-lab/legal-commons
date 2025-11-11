@@ -53,9 +53,7 @@ export function DashboardPage() {
         params.append('state', stateFilter)
       }
 
-      const response = await apiClient.get<LLCListResponse>(
-        `/llc/companies?${params.toString()}`
-      )
+      const response = await apiClient.get<LLCListResponse>(`/llc/companies?${params.toString()}`)
 
       setLlcs(response.companies)
       setTotalPages(response.totalPages)
@@ -127,10 +125,7 @@ export function DashboardPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="bg-error-50 dark:bg-error-900/20 border border-error-200 dark:border-error-800 rounded-lg p-4">
           <p className="text-error-800 dark:text-error-200">{error}</p>
-          <button
-            onClick={fetchLLCs}
-            className="mt-2 btn-secondary"
-          >
+          <button onClick={fetchLLCs} className="mt-2 btn-secondary">
             Try Again
           </button>
         </div>
@@ -146,9 +141,7 @@ export function DashboardPage() {
           <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
             Welcome to Legal Commons, {user?.firstName}!
           </h1>
-          <p className="mt-2 text-gray-600 dark:text-gray-400">
-            Start your business journey today
-          </p>
+          <p className="mt-2 text-gray-600 dark:text-gray-400">Start your business journey today</p>
         </div>
 
         <div className="card text-center py-12">
@@ -166,12 +159,10 @@ export function DashboardPage() {
               d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
             />
           </svg>
-          <h3 className="mt-4 text-lg font-medium text-gray-900 dark:text-gray-100">
-            No LLCs yet
-          </h3>
+          <h3 className="mt-4 text-lg font-medium text-gray-900 dark:text-gray-100">No LLCs yet</h3>
           <p className="mt-2 text-gray-600 dark:text-gray-400 max-w-md mx-auto">
-            Ready to form your LLC? It only takes 10 minutes to get started. We'll guide you
-            through every step and generate professional documents.
+            Ready to form your LLC? It only takes 10 minutes to get started. We'll guide you through
+            every step and generate professional documents.
           </p>
           <div className="mt-6">
             <Link to="/llc-formation" className="btn-primary">
@@ -187,9 +178,7 @@ export function DashboardPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
-            My LLCs
-          </h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">My LLCs</h1>
           <p className="mt-2 text-gray-600 dark:text-gray-400">
             Manage your limited liability companies
           </p>
@@ -239,9 +228,7 @@ export function DashboardPage() {
       {/* LLC list */}
       {llcs.length === 0 ? (
         <div className="card text-center py-8">
-          <p className="text-gray-600 dark:text-gray-400">
-            No LLCs found matching your filters.
-          </p>
+          <p className="text-gray-600 dark:text-gray-400">No LLCs found matching your filters.</p>
           <button
             onClick={() => {
               setSearchTerm('')
@@ -302,16 +289,11 @@ export function DashboardPage() {
                         </svg>
                         {llc.memberCount} {llc.memberCount === 1 ? 'member' : 'members'}
                       </span>
-                      <span>
-                        Created {new Date(llc.created_at).toLocaleDateString()}
-                      </span>
+                      <span>Created {new Date(llc.created_at).toLocaleDateString()}</span>
                     </div>
                   </div>
                   <div className="flex gap-2 ml-4">
-                    <Link
-                      to={`/llc/${llc.id}`}
-                      className="btn-secondary text-sm"
-                    >
+                    <Link to={`/llc/${llc.id}`} className="btn-secondary text-sm">
                       View
                     </Link>
                     <button
@@ -330,7 +312,7 @@ export function DashboardPage() {
           {totalPages > 1 && (
             <div className="mt-6 flex items-center justify-center gap-2">
               <button
-                onClick={() => setPage(p => Math.max(1, p - 1))}
+                onClick={() => setPage((p) => Math.max(1, p - 1))}
                 disabled={page === 1}
                 className="btn-secondary disabled:opacity-50 disabled:cursor-not-allowed"
               >
@@ -340,7 +322,7 @@ export function DashboardPage() {
                 Page {page} of {totalPages}
               </span>
               <button
-                onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+                onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                 disabled={page === totalPages}
                 className="btn-secondary disabled:opacity-50 disabled:cursor-not-allowed"
               >

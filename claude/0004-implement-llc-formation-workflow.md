@@ -17,6 +17,7 @@ Build the complete LLC formation workflow: multi-step questionnaire, state-speci
 ## Acceptance Criteria
 
 ### Completed in MVP
+
 - [x] Multi-step questionnaire component (React Hook Form)
 - [x] State selection with jurisdiction-specific questions
 - [x] Member management UI (single-member vs multi-member)
@@ -25,6 +26,7 @@ Build the complete LLC formation workflow: multi-step questionnaire, state-speci
 - [x] Reusable Stepper component with accessibility
 
 ### Deferred to Future Tasks
+
 - [ ] Business name availability check (mock for now)
 - [ ] Operating agreement template (Markdown with variable interpolation)
 - [ ] Articles of Organization template (state-specific)
@@ -71,7 +73,9 @@ Build the complete LLC formation workflow: multi-step questionnaire, state-speci
 ## Notes
 
 ### What Was Delivered (MVP)
+
 Implemented a complete 5-step questionnaire UI for LLC formation:
+
 1. **State Selection** - Choose from CA, NY, TX, FL, DE with filing fees displayed
 2. **Company Information** - Name, purpose, management type (member-managed vs manager-managed)
 3. **Registered Agent** - Agent details and principal office address
@@ -79,6 +83,7 @@ Implemented a complete 5-step questionnaire UI for LLC formation:
 5. **Review** - Summary of all entered data
 
 **Key Components:**
+
 - `Stepper.tsx` - Reusable multi-step progress indicator with accessibility support
 - Database migration for `llc_companies` and `llc_members` tables
 - TypeScript types for entire LLC workflow
@@ -87,23 +92,28 @@ Implemented a complete 5-step questionnaire UI for LLC formation:
 **Quality:** All local checks passing (lint, typecheck, test, build)
 
 ### What Was Deferred
+
 Made strategic decision to ship UI-only MVP to validate user flow before building backend infrastructure:
+
 - Backend API endpoints for saving/retrieving data
 - Document generation (Operating Agreement, Articles of Organization)
-- PDF export functionality  
+- PDF export functionality
 - Draft save/restore functionality
 - E2E tests for full workflow
 
 ### Follow-up Tasks Needed
+
 - **Task 0006** (new): LLC API Endpoints - Implement CRUD operations for LLC companies and members
 - **Task 0007** (new): Document Generation - Build template engine and PDF export for LLC documents
 
 ### Lessons Learned
+
 - Breaking down complex features into UI → Backend → Documents flow allows for faster iteration
 - Ownership validation at the form level provides immediate feedback vs server-side validation
 - Stepper component can be reused for future multi-step workflows (trademark filing, contract generation, etc.)
 
 ### Future Improvements
+
 - Add "Save Draft" button to persist progress before completion
 - Implement auto-save to localStorage as backup
 - Add state-specific validation rules (e.g., CA requires specific business purpose language)
