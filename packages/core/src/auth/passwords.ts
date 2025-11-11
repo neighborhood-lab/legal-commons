@@ -17,10 +17,7 @@ export async function hashPassword(password: string): Promise<string> {
 /**
  * Compare password with hash
  */
-export async function comparePassword(
-  password: string,
-  hash: string
-): Promise<boolean> {
+export async function comparePassword(password: string, hash: string): Promise<boolean> {
   return bcrypt.compare(password, hash)
 }
 
@@ -37,8 +34,7 @@ export function validatePasswordStrength(password: string): string | null {
 
   if (result.score < 3) {
     return (
-      result.feedback.warning ||
-      'Password is too weak. Use a mix of letters, numbers, and symbols.'
+      result.feedback.warning || 'Password is too weak. Use a mix of letters, numbers, and symbols.'
     )
   }
 

@@ -41,9 +41,7 @@ export async function registerUser(
   input: CreateUserInput
 ): Promise<{ user: UserResponse; tokens: TokenPair }> {
   // Check if user already exists
-  const existingUser = await db('users')
-    .where({ email: input.email.toLowerCase() })
-    .first()
+  const existingUser = await db('users').where({ email: input.email.toLowerCase() }).first()
 
   if (existingUser) {
     throw new Error('User with this email already exists')
@@ -148,10 +146,7 @@ export async function loginUser(
  * Get user by ID
  */
 export async function getUserById(userId: string): Promise<UserResponse | null> {
-  const user = await db('users')
-    .where({ id: userId })
-    .whereNull('deleted_at')
-    .first()
+  const user = await db('users').where({ id: userId }).whereNull('deleted_at').first()
 
   if (!user) {
     return null

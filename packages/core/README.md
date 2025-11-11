@@ -44,48 +44,57 @@ npm run db:nuke -- --confirm
 ### Database Schema
 
 #### Users
+
 - Authentication and profile information
 - Roles: client, attorney, admin, legal_aid_coordinator
 - Email verification tracking
 
 #### Jurisdictions
+
 - State and county-specific requirements
 - Filing fees by entity type
 - Legal requirements and regulations
 
 #### Templates
+
 - Legal document templates
 - Category-specific (business formation, estate planning, etc.)
 - JSON Schema for form validation
 - Markdown content with variable interpolation
 
 #### Documents
+
 - User-generated documents from templates
 - Form data (answers to questionnaires)
 - Status tracking (draft → completed → filed)
 - PDF generation URLs
 
 #### Attorneys
+
 - Bar number and state registration
 - Practice areas
 - Pro bono availability
 - Verification status
 
 #### Consultations
+
 - Scheduled attorney-client consultations
 - Meeting URLs and notes
 - Status tracking
 
 #### Case Notes
+
 - Sensitive information storage (encrypted at application level)
 - Linked to documents and consultations
 
 #### Filings
+
 - Court e-filing tracking
 - Submission status and confirmations
 - Rejection handling
 
 #### Audit Logs
+
 - Comprehensive activity tracking
 - User actions and data changes
 - Security and compliance

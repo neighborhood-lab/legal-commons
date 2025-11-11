@@ -2,6 +2,8 @@
 
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL%203.0-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D22.0.0-brightgreen.svg)](https://nodejs.org/)
+[![CI](https://github.com/neighborhood-lab/legal-commons/actions/workflows/ci.yml/badge.svg)](https://github.com/neighborhood-lab/legal-commons/actions/workflows/ci.yml)
+[![E2E Tests](https://github.com/neighborhood-lab/legal-commons/actions/workflows/e2e.yml/badge.svg)](https://github.com/neighborhood-lab/legal-commons/actions/workflows/e2e.yml)
 
 **Open-source legal services platform democratizing access to legal document preparation and filing assistance.**
 
@@ -100,12 +102,14 @@ npm run db:migrate:status # Check migration status
 ## 🎯 Core Features
 
 ### Phase 1: Business Formation (Current)
+
 - LLC formation (50 states)
 - Corporation formation
 - Operating agreements
 - State filing integration
 
 ### Upcoming Phases
+
 - Estate Planning (wills, trusts, powers of attorney)
 - Family Law (divorce, custody, adoption)
 - Immigration (I-9, I-485, N-400, DACA)
@@ -140,6 +144,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 This project is licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**.
 
 This ensures that:
+
 - The code remains open source forever
 - Any modifications must be shared with the community
 - The platform cannot be proprietized by commercial entities
@@ -155,6 +160,7 @@ See [LICENSE](LICENSE) for full details.
 ## 🙏 Acknowledgments
 
 Built on the shoulders of giants:
+
 - Inspired by the Care Commons project architecture
 - Standing for justice alongside legal aid organizations worldwide
 - Dedicated to the underserved communities who deserve equal access to justice

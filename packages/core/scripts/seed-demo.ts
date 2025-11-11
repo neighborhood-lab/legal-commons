@@ -10,10 +10,10 @@ const db = knex(knexConfig)
 async function seedDemo() {
   try {
     console.log('Seeding demo data...')
-    
+
     // This will run seed files in alphabetical order
     await db.seed.run({ directory: 'seeds' })
-    
+
     console.log('Demo data seeding complete.')
     process.exit(0)
   } catch (error) {

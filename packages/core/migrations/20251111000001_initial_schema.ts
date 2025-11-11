@@ -8,7 +8,10 @@ export async function up(knex: Knex): Promise<void> {
     table.string('password_hash', 255).notNullable()
     table.string('first_name', 100)
     table.string('last_name', 100)
-    table.enum('role', ['client', 'attorney', 'admin', 'legal_aid_coordinator']).notNullable().defaultTo('client')
+    table
+      .enum('role', ['client', 'attorney', 'admin', 'legal_aid_coordinator'])
+      .notNullable()
+      .defaultTo('client')
     table.boolean('email_verified').notNullable().defaultTo(false)
     table.timestamp('email_verified_at')
     table.string('phone', 20)
@@ -16,7 +19,7 @@ export async function up(knex: Knex): Promise<void> {
     table.jsonb('metadata')
     table.timestamps(true, true)
     table.timestamp('deleted_at')
-    
+
     table.index('email')
     table.index('role')
   })
@@ -31,7 +34,7 @@ export async function up(knex: Knex): Promise<void> {
     table.jsonb('requirements').notNullable().defaultTo('{}')
     table.jsonb('metadata')
     table.timestamps(true, true)
-    
+
     table.unique(['state', 'county'])
     table.index('state')
   })
@@ -41,16 +44,18 @@ export async function up(knex: Knex): Promise<void> {
     table.uuid('id').primary().defaultTo(knex.raw('gen_random_uuid()'))
     table.string('name', 255).notNullable()
     table.text('description')
-    table.enum('category', [
-      'business_formation',
-      'estate_planning',
-      'family_law',
-      'immigration',
-      'housing',
-      'employment',
-      'intellectual_property',
-      'dispute_resolution'
-    ]).notNullable()
+    table
+      .enum('category', [
+        'business_formation',
+        'estate_planning',
+        'family_law',
+        'immigration',
+        'housing',
+        'employment',
+        'intellectual_property',
+        'dispute_resolution',
+      ])
+      .notNullable()
     table.uuid('jurisdiction_id').references('id').inTable('jurisdictions').onDelete('CASCADE')
     table.string('version', 20).notNullable().defaultTo('1.0.0')
     table.jsonb('schema').notNullable() // JSON Schema for form fields
@@ -58,7 +63,7 @@ export async function up(knex: Knex): Promise<void> {
     table.boolean('is_active').notNullable().defaultTo(true)
     table.jsonb('metadata')
     table.timestamps(true, true)
-    
+
     table.index('category')
     table.index('jurisdiction_id')
     table.index('is_active')
@@ -68,9 +73,22 @@ export async function up(knex: Knex): Promise<void> {
   await knex.schema.createTable('documents', (table) => {
     table.uuid('id').primary().defaultTo(knex.raw('gen_random_uuid()'))
     table.uuid('user_id').notNullable().references('id').inTable('users').onDelete('CASCADE')
-    table.uuid('template_id').notNullable().references('id').inTable('templates').onDelete('RESTRICT')
-    table.uuid('jurisdiction_id').notNullable().references('id').inTable('jurisdictions').onDelete('RESTRICT')
-    table.enum('status', ['draft', 'completed', 'filed', 'archived']).notNullable().defaultTo('draft')
+    table
+      .uuid('template_id')
+      .notNullable()
+      .references('id')
+      .inTable('templates')
+      .onDelete('RESTRICT')
+    table
+      .uuid('jurisdiction_id')
+      .notNullable()
+      .references('id')
+      .inTable('jurisdictions')
+      .onDelete('RESTRICT')
+    table
+      .enum('status', ['draft', 'completed', 'filed', 'archived'])
+      .notNullable()
+      .defaultTo('draft')
     table.jsonb('form_data').notNullable().defaultTo('{}') // User's answers to questionnaire
     table.text('generated_content') // Final generated document content
     table.string('pdf_url') // URL to generated PDF in Vercel Blob
@@ -79,7 +97,7 @@ export async function up(knex: Knex): Promise<void> {
     table.timestamps(true, true)
     table.timestamp('completed_at')
     table.timestamp('filed_at')
-    
+
     table.index('user_id')
     table.index('template_id')
     table.index('status')
@@ -100,7 +118,7 @@ export async function up(knex: Knex): Promise<void> {
     table.boolean('verified').notNullable().defaultTo(false)
     table.jsonb('metadata')
     table.timestamps(true, true)
-    
+
     table.unique('bar_number')
     table.index('user_id')
     table.index('state')
@@ -111,16 +129,24 @@ export async function up(knex: Knex): Promise<void> {
   await knex.schema.createTable('consultations', (table) => {
     table.uuid('id').primary().defaultTo(knex.raw('gen_random_uuid()'))
     table.uuid('client_id').notNullable().references('id').inTable('users').onDelete('CASCADE')
-    table.uuid('attorney_id').notNullable().references('id').inTable('attorneys').onDelete('CASCADE')
+    table
+      .uuid('attorney_id')
+      .notNullable()
+      .references('id')
+      .inTable('attorneys')
+      .onDelete('CASCADE')
     table.timestamp('scheduled_at').notNullable()
     table.integer('duration_minutes').notNullable().defaultTo(30)
-    table.enum('status', ['scheduled', 'completed', 'cancelled', 'no_show']).notNullable().defaultTo('scheduled')
+    table
+      .enum('status', ['scheduled', 'completed', 'cancelled', 'no_show'])
+      .notNullable()
+      .defaultTo('scheduled')
     table.text('client_notes')
     table.text('attorney_notes')
     table.string('meeting_url')
     table.jsonb('metadata')
     table.timestamps(true, true)
-    
+
     table.index('client_id')
     table.index('attorney_id')
     table.index('scheduled_at')
@@ -137,7 +163,7 @@ export async function up(knex: Knex): Promise<void> {
     table.string('content_type', 50).defaultTo('text') // text, html, markdown
     table.jsonb('metadata')
     table.timestamps(true, true)
-    
+
     table.index('user_id')
     table.index('document_id')
     table.index('consultation_id')
@@ -146,11 +172,24 @@ export async function up(knex: Knex): Promise<void> {
   // Filings table (court e-filing tracking)
   await knex.schema.createTable('filings', (table) => {
     table.uuid('id').primary().defaultTo(knex.raw('gen_random_uuid()'))
-    table.uuid('document_id').notNullable().references('id').inTable('documents').onDelete('CASCADE')
-    table.uuid('jurisdiction_id').notNullable().references('id').inTable('jurisdictions').onDelete('RESTRICT')
+    table
+      .uuid('document_id')
+      .notNullable()
+      .references('id')
+      .inTable('documents')
+      .onDelete('CASCADE')
+    table
+      .uuid('jurisdiction_id')
+      .notNullable()
+      .references('id')
+      .inTable('jurisdictions')
+      .onDelete('RESTRICT')
     table.string('court_name', 255)
     table.string('case_number', 100)
-    table.enum('status', ['pending', 'submitted', 'accepted', 'rejected', 'error']).notNullable().defaultTo('pending')
+    table
+      .enum('status', ['pending', 'submitted', 'accepted', 'rejected', 'error'])
+      .notNullable()
+      .defaultTo('pending')
     table.text('confirmation_number')
     table.jsonb('submission_response')
     table.timestamp('submitted_at')
@@ -159,7 +198,7 @@ export async function up(knex: Knex): Promise<void> {
     table.text('rejection_reason')
     table.jsonb('metadata')
     table.timestamps(true, true)
-    
+
     table.index('document_id')
     table.index('status')
     table.index('submitted_at')
@@ -177,7 +216,7 @@ export async function up(knex: Knex): Promise<void> {
     table.string('user_agent', 500)
     table.jsonb('metadata')
     table.timestamp('created_at').notNullable().defaultTo(knex.fn.now())
-    
+
     table.index('user_id')
     table.index('action')
     table.index('resource_type')

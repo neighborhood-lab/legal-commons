@@ -1,4 +1,4 @@
-import type { Knex } from 'knex';
-declare const knexConfig: Knex.Config;
-export default knexConfig;
+import type { Knex } from 'knex'
+declare const knexConfig: Knex.Config
+export default knexConfig
 //# sourceMappingURL=knexfile.d.ts.map
