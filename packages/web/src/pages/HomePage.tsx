@@ -2,11 +2,11 @@
  * Home page / landing page
  */
 
-import { Link } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import { Link } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
 
 export function HomePage() {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated } = useAuth()
 
   return (
     <div className="min-h-screen">
@@ -17,8 +17,8 @@ export function HomePage() {
             Legal Services for Everyone
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-            Open-source platform democratizing access to legal document
-            preparation, filing assistance, and affordable legal guidance.
+            Open-source platform democratizing access to legal document preparation, filing
+            assistance, and affordable legal guidance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             {isAuthenticated ? (
@@ -51,8 +51,7 @@ export function HomePage() {
               Document Preparation
             </h3>
             <p className="text-gray-600 dark:text-gray-400">
-              Guided workflows to prepare legal documents with confidence and
-              accuracy.
+              Guided workflows to prepare legal documents with confidence and accuracy.
             </p>
           </div>
 
@@ -62,8 +61,7 @@ export function HomePage() {
               Business Formation
             </h3>
             <p className="text-gray-600 dark:text-gray-400">
-              Form your LLC or corporation quickly with state-specific
-              requirements handled.
+              Form your LLC or corporation quickly with state-specific requirements handled.
             </p>
           </div>
 
@@ -73,8 +71,7 @@ export function HomePage() {
               Legal Guidance
             </h3>
             <p className="text-gray-600 dark:text-gray-400">
-              Connect with licensed attorneys for consultations and legal
-              advice when needed.
+              Connect with licensed attorneys for consultations and legal advice when needed.
             </p>
           </div>
         </div>
@@ -83,9 +80,7 @@ export function HomePage() {
       {/* CTA section */}
       <div className="bg-primary-600 dark:bg-primary-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to get started?
-          </h2>
+          <h2 className="text-3xl font-bold text-white mb-4">Ready to get started?</h2>
           <p className="text-xl text-primary-100 mb-8">
             Create your account today and access affordable legal services.
           </p>
@@ -100,5 +95,5 @@ export function HomePage() {
         </div>
       </div>
     </div>
-  );
+  )
 }

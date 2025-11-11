@@ -2,38 +2,34 @@
  * Header component with navigation and user menu
  */
 
-import { Link } from 'react-router-dom';
-import { Menu, X, Sun, Moon, Monitor } from 'lucide-react';
-import { useState } from 'react';
-import { useAuth } from '../../contexts/AuthContext';
-import { useTheme } from '../../contexts/ThemeContext';
+import { Link } from 'react-router-dom'
+import { Menu, X, Sun, Moon, Monitor } from 'lucide-react'
+import { useState } from 'react'
+import { useAuth } from '../../contexts/AuthContext'
+import { useTheme } from '../../contexts/ThemeContext'
 
 export function Header() {
-  const { isAuthenticated, user, logout } = useAuth();
-  const { theme, setTheme } = useTheme();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { isAuthenticated, user, logout } = useAuth()
+  const { theme, setTheme } = useTheme()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const themeIcons = {
     light: Sun,
     dark: Moon,
     system: Monitor,
-  };
+  }
 
   const cycleTheme = () => {
-    const themes: Array<'light' | 'dark' | 'system'> = [
-      'light',
-      'dark',
-      'system',
-    ];
-    const currentIndex = themes.indexOf(theme);
-    const nextIndex = (currentIndex + 1) % themes.length;
-    const nextTheme = themes[nextIndex];
+    const themes: Array<'light' | 'dark' | 'system'> = ['light', 'dark', 'system']
+    const currentIndex = themes.indexOf(theme)
+    const nextIndex = (currentIndex + 1) % themes.length
+    const nextTheme = themes[nextIndex]
     if (nextTheme) {
-      setTheme(nextTheme);
+      setTheme(nextTheme)
     }
-  };
+  }
 
-  const ThemeIcon = themeIcons[theme];
+  const ThemeIcon = themeIcons[theme]
 
   return (
     <header className="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-40">
@@ -96,11 +92,7 @@ export function Header() {
                   aria-label="Toggle menu"
                   aria-expanded={mobileMenuOpen}
                 >
-                  {mobileMenuOpen ? (
-                    <X className="h-6 w-6" />
-                  ) : (
-                    <Menu className="h-6 w-6" />
-                  )}
+                  {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                 </button>
               </>
             ) : (
@@ -150,5 +142,5 @@ export function Header() {
         )}
       </nav>
     </header>
-  );
+  )
 }

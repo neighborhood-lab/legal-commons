@@ -2,25 +2,25 @@
  * Login page with form validation
  */
 
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { useState } from 'react';
-import { useAuth } from '../contexts/AuthContext';
-import type { LoginCredentials } from '../types';
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { useState } from 'react'
+import { useAuth } from '../contexts/AuthContext'
+import type { LoginCredentials } from '../types'
 
 const loginSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
   password: z.string().min(1, 'Password is required'),
-});
+})
 
 export function LoginPage() {
-  const { login } = useAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [error, setError] = useState<string>('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { login } = useAuth()
+  const navigate = useNavigate()
+  const location = useLocation()
+  const [error, setError] = useState<string>('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const {
     register,
@@ -28,52 +28,43 @@ export function LoginPage() {
     formState: { errors },
   } = useForm<LoginCredentials>({
     resolver: zodResolver(loginSchema),
-  });
+  })
 
   const onSubmit = async (data: LoginCredentials) => {
-    setError('');
-    setIsSubmitting(true);
+    setError('')
+    setIsSubmitting(true)
 
     try {
-      await login(data);
+      await login(data)
       // Redirect to the page they were trying to access or dashboard
       const from =
-        (location.state as { from?: { pathname: string } })?.from?.pathname ||
-        '/dashboard';
-      navigate(from, { replace: true });
+        (location.state as { from?: { pathname: string } })?.from?.pathname || '/dashboard'
+      navigate(from, { replace: true })
     } catch (err) {
-      const error = err as { message?: string };
-      setError(error.message || 'Login failed. Please check your credentials.');
+      const error = err as { message?: string }
+      setError(error.message || 'Login failed. Please check your credentials.')
     } finally {
-      setIsSubmitting(false);
+      setIsSubmitting(false)
     }
-  };
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
-            Welcome back
-          </h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Welcome back</h1>
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
             Sign in to your Legal Commons account
           </p>
         </div>
 
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="card space-y-6"
-          noValidate
-        >
+        <form onSubmit={handleSubmit(onSubmit)} className="card space-y-6" noValidate>
           {error && (
             <div
               className="p-4 bg-error-50 dark:bg-error-900/20 border border-error-200 dark:border-error-800 rounded-lg"
               role="alert"
             >
-              <p className="text-sm text-error-700 dark:text-error-400">
-                {error}
-              </p>
+              <p className="text-sm text-error-700 dark:text-error-400">{error}</p>
             </div>
           )}
 
@@ -118,11 +109,7 @@ export function LoginPage() {
           </div>
 
           <div>
-            <button
-              type="submit"
-              className="w-full btn-primary"
-              disabled={isSubmitting}
-            >
+            <button type="submit" className="w-full btn-primary" disabled={isSubmitting}>
               {isSubmitting ? 'Signing in...' : 'Sign in'}
             </button>
           </div>
@@ -141,5 +128,5 @@ export function LoginPage() {
         </form>
       </div>
     </div>
-  );
+  )
 }

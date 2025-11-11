@@ -2,20 +2,20 @@
  * Main App component with routing
  */
 
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
-import { ErrorBoundary } from './components/common/ErrorBoundary';
-import { ProtectedRoute } from './components/common/ProtectedRoute';
-import { Layout } from './components/layout/Layout';
-import { AuthProvider } from './contexts/AuthContext';
-import { ThemeProvider } from './contexts/ThemeContext';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { Toaster } from 'react-hot-toast'
+import { ErrorBoundary } from './components/common/ErrorBoundary'
+import { ProtectedRoute } from './components/common/ProtectedRoute'
+import { Layout } from './components/layout/Layout'
+import { AuthProvider } from './contexts/AuthContext'
+import { ThemeProvider } from './contexts/ThemeContext'
 
 // Pages
-import { HomePage } from './pages/HomePage';
-import { LoginPage } from './pages/LoginPage';
-import { RegisterPage } from './pages/RegisterPage';
-import { DashboardPage } from './pages/DashboardPage';
-import { NotFoundPage } from './pages/NotFoundPage';
+import { HomePage } from './pages/HomePage'
+import { LoginPage } from './pages/LoginPage'
+import { RegisterPage } from './pages/RegisterPage'
+import { DashboardPage } from './pages/DashboardPage'
+import { NotFoundPage } from './pages/NotFoundPage'
 
 export function App() {
   return (
@@ -73,5 +73,5 @@ export function App() {
         </ThemeProvider>
       </BrowserRouter>
     </ErrorBoundary>
-  );
+  )
 }
