@@ -21,9 +21,10 @@ interface ReviewStepProps {
   };
   onSubmit: () => void;
   onBack: () => void;
+  isSubmitting?: boolean;
 }
 
-export function ReviewStep({ formData, onSubmit, onBack }: ReviewStepProps) {
+export function ReviewStep({ formData, onSubmit, onBack, isSubmitting = false }: ReviewStepProps) {
   return (
     <div className="space-y-6">
       <div>
@@ -76,8 +77,15 @@ export function ReviewStep({ formData, onSubmit, onBack }: ReviewStepProps) {
       </div>
 
       <div className="flex justify-between pt-6">
-        <button type="button" onClick={onBack} className="btn-secondary">Back</button>
-        <button type="button" onClick={onSubmit} className="btn-primary">Generate Documents</button>
+        <button type="button" onClick={onBack} className="btn-secondary" disabled={isSubmitting}>Back</button>
+        <button 
+          type="button" 
+          onClick={onSubmit} 
+          className="btn-primary" 
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? 'Submitting...' : 'Generate Documents'}
+        </button>
       </div>
     </div>
   );

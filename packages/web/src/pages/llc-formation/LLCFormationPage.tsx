@@ -5,12 +5,14 @@
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import { Stepper, type Step } from '../../components/common/Stepper';
 import { StateSelectionStep } from './steps/StateSelectionStep';
 import { CompanyInfoStep } from './steps/CompanyInfoStep';
 import { RegisteredAgentStep } from './steps/RegisteredAgentStep';
 import { MembersStep} from './steps/MembersStep';
 import { ReviewStep } from './steps/ReviewStep';
+import { apiClient } from '../../lib/api-client';
 
 const STEPS: Step[] = [
   { id: 'state', title: 'State', description: 'Select state' },
@@ -65,6 +67,7 @@ export function LLCFormationPage() {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState<LLCFormData>(INITIAL_FORM_DATA);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleNext = (stepData: Partial<LLCFormData>) => {
     setFormData((prev) => ({ ...prev, ...stepData }));
@@ -84,9 +87,55 @@ export function LLCFormationPage() {
   };
 
   const handleSubmit = async () => {
-    // TODO: Submit to API, generate documents
-    console.warn('LLC Formation submitted:', formData);
-    navigate('/dashboard');
+    setIsSubmitting(true);
+
+    try {
+      // Transform form data to API schema (snake_case)
+      const apiPayload = {
+        state: formData.state,
+        company_name: formData.companyName,
+        business_purpose: formData.businessPurpose,
+        management_type: formData.managementType === 'member-managed' ? 'member_managed' : 'manager_managed',
+        registered_agent_name: formData.agentName,
+        registered_agent_address: formData.agentStreet,
+        registered_agent_city: formData.agentCity,
+        registered_agent_state: formData.agentState,
+        registered_agent_zip: formData.agentZip,
+        principal_office_address: formData.officeStreet,
+        principal_office_city: formData.officeCity,
+        principal_office_state: formData.officeState,
+        principal_office_zip: formData.officeZip,
+        members: formData.members.map((member) => ({
+          name: member.name,
+          email: member.email,
+          address: '', // Not collected in form yet
+          city: '',
+          state: formData.state, // Use LLC state as default
+          zip: '',
+          ownership_percentage: member.ownershipPercentage,
+          is_manager: member.isManager,
+        })),
+      };
+
+      // Submit to API
+      await apiClient.post<{ id: string }>('/llc/companies', apiPayload);
+
+      // Show success message
+      toast.success('LLC formation submitted successfully! You can now generate your documents.');
+
+      // Navigate to dashboard after short delay
+      setTimeout(() => {
+        navigate('/dashboard');
+      }, 2000);
+    } catch (error) {
+      console.error('Failed to submit LLC formation:', error);
+      
+      // Display user-friendly error message
+      const errorMessage = (error as { message?: string })?.message || 'Failed to submit LLC formation. Please try again.';
+      toast.error(errorMessage);
+      
+      setIsSubmitting(false);
+    }
   };
 
   const renderStep = () => {
@@ -147,6 +196,7 @@ export function LLCFormationPage() {
             formData={formData}
             onSubmit={handleSubmit}
             onBack={handleBack}
+            isSubmitting={isSubmitting}
           />
         );
       default:

@@ -56,6 +56,10 @@ export default [
         Headers: 'readonly',
         HeadersInit: 'readonly',
         NodeJS: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
       },
     },
     rules: {
