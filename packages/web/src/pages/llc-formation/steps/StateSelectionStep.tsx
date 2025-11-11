@@ -3,10 +3,10 @@
  * Allows user to select which state to form LLC in
  */
 
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { MapPin } from 'lucide-react';
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
+import { MapPin } from 'lucide-react'
 
 const SUPPORTED_STATES = [
   { code: 'CA', name: 'California', filingFee: 70 },
@@ -14,26 +14,22 @@ const SUPPORTED_STATES = [
   { code: 'TX', name: 'Texas', filingFee: 300 },
   { code: 'FL', name: 'Florida', filingFee: 125 },
   { code: 'DE', name: 'Delaware', filingFee: 90 },
-];
+]
 
 const schema = z.object({
   state: z.string().min(2, 'Please select a state'),
-});
+})
 
-type FormData = z.infer<typeof schema>;
+type FormData = z.infer<typeof schema>
 
 interface StateSelectionStepProps {
-  initialData: { state: string };
+  initialData: { state: string }
   // eslint-disable-next-line no-unused-vars
-  onNext: (data: { state: string }) => void;
-  onBack: () => void;
+  onNext: (data: { state: string }) => void
+  onBack: () => void
 }
 
-export function StateSelectionStep({
-  initialData,
-  onNext,
-  onBack,
-}: StateSelectionStepProps) {
+export function StateSelectionStep({ initialData, onNext, onBack }: StateSelectionStepProps) {
   const {
     register,
     handleSubmit,
@@ -41,11 +37,11 @@ export function StateSelectionStep({
   } = useForm<FormData>({
     resolver: zodResolver(schema),
     defaultValues: initialData,
-  });
+  })
 
   const onSubmit = (data: FormData) => {
-    onNext(data);
-  };
+    onNext(data)
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -54,8 +50,8 @@ export function StateSelectionStep({
           Where would you like to form your LLC?
         </h2>
         <p className="text-gray-600 dark:text-gray-400 mb-6">
-          Select the state where your LLC will be registered. Most businesses
-          choose the state where they primarily operate.
+          Select the state where your LLC will be registered. Most businesses choose the state where
+          they primarily operate.
         </p>
       </div>
 
@@ -66,20 +62,11 @@ export function StateSelectionStep({
             className={`
               relative flex cursor-pointer rounded-lg border p-4 
               focus:outline-none
-              ${
-                errors.state
-                  ? 'border-error-500'
-                  : 'border-gray-300 dark:border-gray-600'
-              }
+              ${errors.state ? 'border-error-500' : 'border-gray-300 dark:border-gray-600'}
               hover:border-primary-600 dark:hover:border-primary-400
             `}
           >
-            <input
-              type="radio"
-              value={state.code}
-              {...register('state')}
-              className="sr-only"
-            />
+            <input type="radio" value={state.code} {...register('state')} className="sr-only" />
             <div className="flex flex-1">
               <div className="flex flex-col flex-1">
                 <div className="flex items-center">
@@ -116,5 +103,5 @@ export function StateSelectionStep({
         </button>
       </div>
     </form>
-  );
+  )
 }

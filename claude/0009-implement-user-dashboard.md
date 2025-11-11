@@ -45,11 +45,13 @@ Build a user dashboard that allows users to view all their LLCs, track formation
 ### API Endpoints
 
 **GET /api/llc/companies**
+
 - Query params: `page`, `limit`, `state`, `search`
 - Response: Paginated list with memberCount
 - Implemented in packages/app/src/routes/llc.ts
 
 **listLLCCompanies function**
+
 - Backend function in packages/core/src/llc/index.ts
 - Handles pagination, search (ILIKE), state filtering
 - Returns total count and page info
@@ -57,6 +59,7 @@ Build a user dashboard that allows users to view all their LLCs, track formation
 ### State Management
 
 Used React useState hooks for:
+
 - LLC list data
 - Loading state
 - Error state
@@ -97,6 +100,7 @@ Used useCallback to prevent infinite render loop.
 Successfully delivered a complete user dashboard enabling users to view, search, filter, and manage all their LLCs. This closed a critical UX gap where users could create LLCs but had no way to access them again.
 
 **Delivered Features**:
+
 - Backend list endpoint with pagination (10 items/page)
 - Search by company name (case-insensitive)
 - Filter by state (CA, NY, TX, FL, DE)
@@ -107,6 +111,7 @@ Successfully delivered a complete user dashboard enabling users to view, search,
 - Responsive card layout
 
 **Code Changes**: 456 lines added (net +410)
+
 - Backend: 95 lines (pagination + list endpoint)
 - Frontend: 329 lines (DashboardPage rewrite)
 - API Client: 27 lines (generic HTTP methods)
@@ -152,6 +157,7 @@ Code Quality and Vercel Preview failed (non-blocking).
 ### Justice Impact
 
 Serves underserved communities through:
+
 - Mobile-first design (works without desktop)
 - Simple, clear UI (reduces confusion)
 - Fast load times (works on slow connections)

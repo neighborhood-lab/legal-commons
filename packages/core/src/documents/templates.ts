@@ -24,23 +24,23 @@ export interface TemplateData {
   state: string
   businessPurpose: string
   formationDate: string
-  
+
   // Registered agent
   agentName: string
   agentAddress: string
   agentCity: string
   agentState: string
   agentZip: string
-  
+
   // Principal office
   officeAddress: string
   officeCity: string
   officeState: string
   officeZip: string
-  
+
   // Management
   isMemberManaged: boolean
-  
+
   // Members (for multi-member docs)
   members?: Array<{
     name: string
@@ -54,7 +54,7 @@ export interface TemplateData {
     isManager: boolean
     capitalContribution?: number | null
   }>
-  
+
   // Single member info (for single-member docs)
   memberName?: string
   memberAddress?: string
@@ -64,48 +64,45 @@ export interface TemplateData {
   memberEmail?: string | null
   memberPhone?: string | null
   capitalContribution?: number | null
-  
+
   // Organizer (typically first member/manager)
   organizerName: string
   organizerAddress?: string
-  
+
   // State-specific fields
-  county?: string  // Required for NY and DE
+  county?: string // Required for NY and DE
 }
 
 /**
  * Convert LLC company and members to template data
  * Database returns snake_case, so we handle both camelCase (types) and snake_case (runtime)
  */
-export function prepareTemplateData(
-  company: LLCCompanyDB,
-  members: LLCMemberDB[]
-): TemplateData {
+export function prepareTemplateData(company: LLCCompanyDB, members: LLCMemberDB[]): TemplateData {
   const managementType = company.management_type || company.managementType
   const isMemberManaged = managementType === 'member-managed'
   const firstMember = members[0]
-  
+
   if (!firstMember) {
     throw new Error('At least one member is required to generate documents')
   }
-  
+
   // Format formation date
   const formationDateRaw = company.formation_date || company.formationDate
   const formationDate = formationDateRaw
     ? new Date(formationDateRaw).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
-        day: 'numeric'
+        day: 'numeric',
       })
     : new Date().toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
-        day: 'numeric'
+        day: 'numeric',
       })
-  
+
   // Extract metadata if available
   const metadata = company.metadata || {}
-  
+
   const data: TemplateData = {
     companyName: company.company_name || company.companyName,
     state: company.state,
@@ -125,7 +122,7 @@ export function prepareTemplateData(
     organizerAddress: `${firstMember.street}, ${firstMember.city}, ${firstMember.state} ${firstMember.zip}`,
     county: metadata.county, // Optional field for states that require it (NY, DE)
   }
-  
+
   // For single-member LLCs
   if (members.length === 1) {
     data.memberName = firstMember.name
@@ -138,7 +135,7 @@ export function prepareTemplateData(
     data.capitalContribution = firstMember.capital_contribution || firstMember.capitalContribution
   } else {
     // For multi-member LLCs
-    data.members = members.map(member => ({
+    data.members = members.map((member) => ({
       name: member.name,
       street: member.street,
       city: member.city,
@@ -151,7 +148,7 @@ export function prepareTemplateData(
       capitalContribution: member.capital_contribution || member.capitalContribution,
     }))
   }
-  
+
   return data
 }
 
@@ -167,14 +164,12 @@ async function loadTemplate(templatePath: string): Promise<Handlebars.TemplateDe
 /**
  * Render Operating Agreement template
  */
-export async function renderOperatingAgreement(
-  data: TemplateData
-): Promise<string> {
+export async function renderOperatingAgreement(data: TemplateData): Promise<string> {
   const isSingleMember = !data.members || data.members.length === 0
   const templatePath = isSingleMember
     ? 'llc/operating-agreement/single-member.html'
     : 'llc/operating-agreement/multi-member.html'
-  
+
   const template = await loadTemplate(templatePath)
   return template(data)
 }
@@ -182,12 +177,10 @@ export async function renderOperatingAgreement(
 /**
  * Render Articles of Organization template
  */
-export async function renderArticlesOfOrganization(
-  data: TemplateData
-): Promise<string> {
+export async function renderArticlesOfOrganization(data: TemplateData): Promise<string> {
   // Currently only supporting CA, but structure allows for expansion
   const templatePath = `llc/articles-of-organization/${data.state}.html`
-  
+
   try {
     const template = await loadTemplate(templatePath)
     return template(data)
@@ -206,19 +199,13 @@ export async function renderArticlesOfOrganization(
  * Get list of available document types
  */
 export function getAvailableDocuments(): string[] {
-  return [
-    'operating-agreement',
-    'articles-of-organization',
-  ]
+  return ['operating-agreement', 'articles-of-organization']
 }
 
 /**
  * Render a specific document type
  */
-export async function renderDocument(
-  documentType: string,
-  data: TemplateData
-): Promise<string> {
+export async function renderDocument(documentType: string, data: TemplateData): Promise<string> {
   switch (documentType) {
     case 'operating-agreement':
       return await renderOperatingAgreement(data)

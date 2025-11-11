@@ -2,31 +2,37 @@
  * Step 2: Company Information
  */
 
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
 
 const schema = z.object({
   companyName: z.string().min(1, 'Company name is required'),
-  businessPurpose: z.string().min(10, 'Please provide a brief description (at least 10 characters)'),
+  businessPurpose: z
+    .string()
+    .min(10, 'Please provide a brief description (at least 10 characters)'),
   managementType: z.enum(['member-managed', 'manager-managed']),
-});
+})
 
-type FormData = z.infer<typeof schema>;
+type FormData = z.infer<typeof schema>
 
 interface CompanyInfoStepProps {
-  initialData: FormData;
-  state: string;
+  initialData: FormData
+  state: string
   // eslint-disable-next-line no-unused-vars
-  onNext: (data: FormData) => void;
-  onBack: () => void;
+  onNext: (data: FormData) => void
+  onBack: () => void
 }
 
 export function CompanyInfoStep({ initialData, state, onNext, onBack }: CompanyInfoStepProps) {
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({
     resolver: zodResolver(schema),
     defaultValues: initialData,
-  });
+  })
 
   return (
     <form onSubmit={handleSubmit(onNext)} className="space-y-6">
@@ -34,9 +40,7 @@ export function CompanyInfoStep({ initialData, state, onNext, onBack }: CompanyI
         <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
           Company Information
         </h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-6">
-          Forming LLC in {state}
-        </p>
+        <p className="text-gray-600 dark:text-gray-400 mb-6">Forming LLC in {state}</p>
       </div>
 
       <div>
@@ -50,9 +54,7 @@ export function CompanyInfoStep({ initialData, state, onNext, onBack }: CompanyI
           placeholder="Acme LLC"
           {...register('companyName')}
         />
-        {errors.companyName && (
-          <p className="error-message">{errors.companyName.message}</p>
-        )}
+        {errors.companyName && <p className="error-message">{errors.companyName.message}</p>}
       </div>
 
       <div>
@@ -81,7 +83,9 @@ export function CompanyInfoStep({ initialData, state, onNext, onBack }: CompanyI
               {...register('managementType')}
               className="mr-2"
             />
-            <span className="text-gray-900 dark:text-gray-100">Member-Managed (owners run the business)</span>
+            <span className="text-gray-900 dark:text-gray-100">
+              Member-Managed (owners run the business)
+            </span>
           </label>
           <label className="flex items-center">
             <input
@@ -90,7 +94,9 @@ export function CompanyInfoStep({ initialData, state, onNext, onBack }: CompanyI
               {...register('managementType')}
               className="mr-2"
             />
-            <span className="text-gray-900 dark:text-gray-100">Manager-Managed (designated managers run the business)</span>
+            <span className="text-gray-900 dark:text-gray-100">
+              Manager-Managed (designated managers run the business)
+            </span>
           </label>
         </div>
       </div>
@@ -104,5 +110,5 @@ export function CompanyInfoStep({ initialData, state, onNext, onBack }: CompanyI
         </button>
       </div>
     </form>
-  );
+  )
 }

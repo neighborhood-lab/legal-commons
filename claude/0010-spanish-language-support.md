@@ -17,6 +17,7 @@ Implement internationalization (i18n) framework and add complete Spanish transla
 ## Acceptance Criteria
 
 ### Phase 1 - Infrastructure (✅ Completed - PR #11)
+
 - [x] i18n framework installed and configured (react-i18next)
 - [x] Language switcher in header (EN/ES)
 - [x] Translation file structure created (common, auth, dashboard, llc-formation)
@@ -25,6 +26,7 @@ Implement internationalization (i18n) framework and add complete Spanish transla
 - [x] Language preference persists in localStorage
 
 ### Phase 2 - UI Translations (⏳ Next PR)
+
 - [ ] Translate HomePage component
 - [ ] Translate LoginPage component
 - [ ] Translate RegisterPage component
@@ -34,6 +36,7 @@ Implement internationalization (i18n) framework and add complete Spanish transla
 - [ ] Date/number formatting respects locale
 
 ### Phase 3 - Document Templates (🔄 Future)
+
 - [ ] Spanish Operating Agreement template (single-member)
 - [ ] Spanish Operating Agreement template (multi-member)
 - [ ] Spanish Articles of Organization - CA
@@ -43,12 +46,14 @@ Implement internationalization (i18n) framework and add complete Spanish transla
 - [ ] Spanish Articles of Organization - DE
 
 ### Phase 4 - Backend Integration (🔄 Future)
+
 - [ ] Add `language` field to users table (migration)
 - [ ] Update user profile API to persist language
 - [ ] Document generation accepts `lang` parameter
 - [ ] Spanish email templates (verification, password reset)
 
 ### Phase 5 - Polish (🔄 Future)
+
 - [ ] SEO: Spanish pages have proper lang tags
 - [ ] RTL support architecture (for future Arabic)
 - [ ] Unit tests for i18n utilities
@@ -60,6 +65,7 @@ Implement internationalization (i18n) framework and add complete Spanish transla
 ### i18n Framework: react-i18next
 
 Installation:
+
 ```bash
 npm install i18next react-i18next i18next-browser-languagedetector
 ```
@@ -85,6 +91,7 @@ packages/web/src/locales/
 ### Key Translation Considerations
 
 1. **Legal Terms**: Work with bilingual legal expert or use established translations
+
    - LLC → "Sociedad de Responsabilidad Limitada" (SRL) or keep "LLC"
    - Operating Agreement → "Acuerdo Operativo"
    - Articles of Organization → "Artículos de Organización"
@@ -100,6 +107,7 @@ packages/web/src/locales/
 ### Document Templates
 
 Create Spanish versions:
+
 ```
 packages/core/templates/llc/
   operating-agreement/
@@ -116,6 +124,7 @@ packages/core/templates/llc/
 ### API Changes
 
 **User Profile**: Add `language` field (default: 'en')
+
 ```typescript
 interface User {
   language: 'en' | 'es'
@@ -123,6 +132,7 @@ interface User {
 ```
 
 **Document Generation**: Accept `lang` query parameter
+
 ```
 GET /api/llc/companies/:id/documents/:type/download?lang=es
 ```
@@ -130,6 +140,7 @@ GET /api/llc/companies/:id/documents/:type/download?lang=es
 ### Professional Translation
 
 For legal documents, consider:
+
 1. Community review by bilingual lawyers
 2. Glossary of legal terms
 3. Side-by-side EN/ES preview for verification
@@ -137,6 +148,7 @@ For legal documents, consider:
 ### Underserved Impact
 
 According to US Census:
+
 - 13.5% of US population speaks Spanish at home (43M people)
 - Hispanic/Latino business ownership growing 34% (2007-2012)
 - Language barrier is #1 challenge for immigrant entrepreneurs
@@ -153,6 +165,7 @@ This feature directly serves our mission of bringing justice to underserved comm
 ## Completion Checklist
 
 ### Phase 1 (MVP Infrastructure)
+
 - [x] Code implemented (i18n framework, LanguageSwitcher, Header translations)
 - [x] All existing unit tests passing (22 tests)
 - [x] TypeCheck passing
@@ -163,6 +176,7 @@ This feature directly serves our mission of bringing justice to underserved comm
 - [x] Post-merge checks passing
 
 ### Phases 2-5
+
 - [ ] Remaining implementation (see Acceptance Criteria above)
 
 ## Completion Date (Phase 1)
@@ -176,6 +190,7 @@ This feature directly serves our mission of bringing justice to underserved comm
 Successfully established i18n infrastructure for Spanish language support, enabling future translation work across the application.
 
 **Delivered**:
+
 - i18next ecosystem installed (i18next, react-i18next, i18next-browser-languagedetector)
 - LanguageSwitcher component with 🇺🇸/🇪🇸 flag icons
 - Complete translation file structure for all namespaces
@@ -184,6 +199,7 @@ Successfully established i18n infrastructure for Spanish language support, enabl
 - Automatic browser language detection
 
 **Code Changes**: 701 lines added (16 files changed)
+
 - Dependencies: 3 npm packages
 - Translation files: 8 JSON files (4 EN + 4 ES, ~330 lines)
 - Components: LanguageSwitcher.tsx (43 lines)
@@ -200,7 +216,8 @@ Successfully established i18n infrastructure for Spanish language support, enabl
 
 3. **Region-Neutral**: Avoided regionalisms (e.g., no "vosotros" from Spain, no Argentine/Mexican slang) to appeal to all Spanish-speaking users.
 
-4. **Legal Term Translation**: 
+4. **Legal Term Translation**:
+
    - LLC → "LLC" (kept English acronym as it's widely recognized)
    - Operating Agreement → "Acuerdo Operativo"
    - Articles of Organization → "Artículos de Organización"
@@ -230,22 +247,26 @@ Successfully established i18n infrastructure for Spanish language support, enabl
 ### Future Work (Phases 2-5)
 
 **Phase 2 - UI Translations** (Estimated: 4-6 hours):
+
 - Translate all page components using `useTranslation` hook
 - Replace hardcoded strings with translation keys
 - Test language switching across all pages
 
 **Phase 3 - Document Templates** (Estimated: 8-10 hours):
+
 - Create Spanish versions of all HTML templates
 - Work with bilingual legal expert for accuracy
 - Test PDF generation in Spanish
 
 **Phase 4 - Backend Integration** (Estimated: 2-3 hours):
+
 - Add `language` column to `users` table
 - Update user profile endpoints
 - Modify document generation API to accept `lang` parameter
 - Create Spanish email templates
 
 **Phase 5 - Polish** (Estimated: 3-4 hours):
+
 - Add SEO meta tags for language
 - Create i18n utility tests
 - E2E testing in Spanish

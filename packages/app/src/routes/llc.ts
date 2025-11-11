@@ -72,9 +72,7 @@ const createLLCSchema = z.object({
   taxClassification: z.string().optional().nullable(),
 
   // Members
-  members: z
-    .array(memberSchema)
-    .min(1, 'At least one member is required'),
+  members: z.array(memberSchema).min(1, 'At least one member is required'),
 })
 
 const updateLLCSchema = createLLCSchema.partial()
@@ -254,7 +252,7 @@ router.post('/companies/:id/members', async (req, res) => {
 
     const { id } = req.params
     const input = memberSchema.parse(req.body)
-    
+
     // Convert camelCase to snake_case for database
     const memberData = {
       member_type: input.memberType,
@@ -272,7 +270,7 @@ router.post('/companies/:id/members', async (req, res) => {
       is_manager: input.isManager,
       capital_contribution: input.capitalContribution,
     }
-    
+
     const member = await addLLCMember(id, req.user.userId, memberData)
 
     res.status(201).json({ member })
@@ -309,7 +307,7 @@ router.patch('/members/:id', async (req, res) => {
 
     const { id } = req.params
     const input = updateMemberSchema.parse(req.body)
-    
+
     // Convert camelCase to snake_case for database
     const memberData: Record<string, unknown> = {}
     if (input.memberType !== undefined) memberData.member_type = input.memberType
@@ -323,10 +321,12 @@ router.patch('/members/:id', async (req, res) => {
     if (input.zip !== undefined) memberData.zip = input.zip
     if (input.entityType !== undefined) memberData.entity_type = input.entityType
     if (input.entityState !== undefined) memberData.entity_state = input.entityState
-    if (input.ownershipPercentage !== undefined) memberData.ownership_percentage = input.ownershipPercentage
+    if (input.ownershipPercentage !== undefined)
+      memberData.ownership_percentage = input.ownershipPercentage
     if (input.isManager !== undefined) memberData.is_manager = input.isManager
-    if (input.capitalContribution !== undefined) memberData.capital_contribution = input.capitalContribution
-    
+    if (input.capitalContribution !== undefined)
+      memberData.capital_contribution = input.capitalContribution
+
     const member = await updateLLCMember(id, req.user.userId, memberData)
 
     res.json({ member })
@@ -338,10 +338,7 @@ router.patch('/members/:id', async (req, res) => {
     }
 
     if (error instanceof Error) {
-      if (
-        error.message === 'LLC member not found' ||
-        error.message === 'Unauthorized'
-      ) {
+      if (error.message === 'LLC member not found' || error.message === 'Unauthorized') {
         res.status(404).json({ error: error.message })
         return
       }
@@ -370,15 +367,12 @@ router.delete('/members/:id', async (req, res) => {
     res.status(204).send()
   } catch (error) {
     if (error instanceof Error) {
-      if (
-        error.message === 'LLC member not found' ||
-        error.message === 'Unauthorized'
-      ) {
+      if (error.message === 'LLC member not found' || error.message === 'Unauthorized') {
         res.status(404).json({ error: error.message })
         return
       }
       res.status(400).json({ error: error.message })
-        return
+      return
     }
 
     res.status(500).json({ error: 'Internal server error' })

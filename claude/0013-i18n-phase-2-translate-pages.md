@@ -34,6 +34,7 @@ Complete Spanish translations for all page components. Phase 1 (task #0010) esta
 ### Translation Workflow
 
 For each page component:
+
 1. Read component file
 2. Identify all hardcoded strings
 3. Add translation keys to appropriate namespace JSON file
@@ -42,24 +43,26 @@ For each page component:
 
 ### Component Translation Map
 
-| Component | Namespace | Translation Keys |
-|-----------|-----------|------------------|
-| HomePage | home | hero, features, howItWorks, pricing, faq |
-| LoginPage | auth | login.* |
-| RegisterPage | auth | register.* |
-| DashboardPage | dashboard | title, welcome, empty, filters, cards |
+| Component        | Namespace    | Translation Keys                                           |
+| ---------------- | ------------ | ---------------------------------------------------------- |
+| HomePage         | home         | hero, features, howItWorks, pricing, faq                   |
+| LoginPage        | auth         | login.\*                                                   |
+| RegisterPage     | auth         | register.\*                                                |
+| DashboardPage    | dashboard    | title, welcome, empty, filters, cards                      |
 | LLCFormationPage | llcFormation | steps, stateSelection, companyInfo, agent, members, review |
-| Footer | common | footer.* |
+| Footer           | common       | footer.\*                                                  |
 
 ### Example Translation
 
 **Before**:
+
 ```tsx
 <h1>Welcome to Legal Commons</h1>
 <p>Form your LLC in minutes</p>
 ```
 
 **After**:
+
 ```tsx
 const { t } = useTranslation('home');
 
@@ -68,6 +71,7 @@ const { t } = useTranslation('home');
 ```
 
 **Translation Files**:
+
 ```json
 // en/home.json
 {
@@ -89,11 +93,13 @@ const { t } = useTranslation('home');
 ### Date/Number Formatting
 
 Use i18next interpolation for dates and numbers:
+
 ```typescript
 t('dashboard.created', { date: new Date().toLocaleDateString(i18n.language) })
 ```
 
 Or use Intl API:
+
 ```typescript
 new Intl.DateTimeFormat(i18n.language).format(date)
 new Intl.NumberFormat(i18n.language, { style: 'currency', currency: 'USD' }).format(amount)

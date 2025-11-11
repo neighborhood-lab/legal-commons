@@ -34,24 +34,28 @@ Expand LLC formation support beyond California to include New York, Texas, Flori
 ### State-Specific Requirements
 
 **New York**:
+
 - Requires publication in two newspapers (one daily, one weekly) for 6 consecutive weeks
 - Must file Certificate of Publication within 120 days
 - Registered agent must be NY resident or authorized business entity
 - Higher filing fees (~$200)
 
 **Texas**:
+
 - Series LLC option available (parent LLC with multiple series)
 - Professional LLC option for licensed professionals
 - Registered agent must have TX street address (no PO boxes)
 - Filing fee: $300
 
 **Florida**:
+
 - Requires annual report filed between January 1 and May 1
 - Must designate registered agent with FL street address
 - Filing fee: $125
 - Optional: Name reservation ($35)
 
 **Delaware**:
+
 - Popular for venture-backed startups (corporate law advantages)
 - Franchise tax due annually
 - Registered agent must be DE resident or authorized entity
@@ -59,6 +63,7 @@ Expand LLC formation support beyond California to include New York, Texas, Flori
 - Very minimal requirements (privacy-friendly)
 
 **Nevada** (Future consideration):
+
 - No corporate income tax
 - Strong privacy protections
 - Popular for asset protection
@@ -66,6 +71,7 @@ Expand LLC formation support beyond California to include New York, Texas, Flori
 ### Template Structure
 
 Continue using existing pattern:
+
 ```
 packages/core/templates/llc/articles-of-organization/
   CA.html (existing)
@@ -78,6 +84,7 @@ packages/core/templates/llc/articles-of-organization/
 ### Database Updates
 
 Update `jurisdictions` table with state-specific data:
+
 - Filing fees
 - Processing times
 - Publication requirements
@@ -115,6 +122,7 @@ Update `jurisdictions` table with state-specific data:
 Successfully expanded LLC formation support from California-only to five states (CA, NY, TX, FL, DE), covering approximately 60% of US LLC formations.
 
 **Delivered**:
+
 - 4 new state-specific Articles of Organization templates (502 lines)
 - NY template with publication requirement notice and county field
 - TX Certificate of Formation with franchise tax information
@@ -123,6 +131,7 @@ Successfully expanded LLC formation support from California-only to five states 
 - Enhanced template system to support state-specific fields (county, organizerAddress)
 
 **Code Changes**: 747 lines added
+
 - Templates: 502 lines (NY: 113, TX: 128, FL: 145, DE: 117)
 - Template system: 9 lines (TemplateData interface, data extraction)
 - Documentation: 236 lines (task files)
@@ -143,14 +152,14 @@ Successfully expanded LLC formation support from California-only to five states 
 
 ### State Coverage Analysis
 
-| State | % of US LLCs | Key Advantages | Template Status |
-|-------|--------------|----------------|-----------------|
-| CA | 15% | Tech hub, largest population | ✅ Existing |
-| NY | 10% | Financial services, media | ✅ Added |
-| TX | 12% | No state tax, business-friendly | ✅ Added |
-| FL | 11% | No state tax, tourism | ✅ Added |
-| DE | 8% | Corporate law, multi-state | ✅ Added |
-| **Total** | **56%** | - | **5 states** |
+| State     | % of US LLCs | Key Advantages                  | Template Status |
+| --------- | ------------ | ------------------------------- | --------------- |
+| CA        | 15%          | Tech hub, largest population    | ✅ Existing     |
+| NY        | 10%          | Financial services, media       | ✅ Added        |
+| TX        | 12%          | No state tax, business-friendly | ✅ Added        |
+| FL        | 11%          | No state tax, tourism           | ✅ Added        |
+| DE        | 8%           | Corporate law, multi-state      | ✅ Added        |
+| **Total** | **56%**      | -                               | **5 states**    |
 
 ### Lessons Learned
 
@@ -165,20 +174,14 @@ Successfully expanded LLC formation support from California-only to five states 
 ### Future Enhancements
 
 **High Priority**:
+
 1. Add filing instruction documents for each state
 2. Update jurisdiction seed data with filing fees and processing times
 3. Add state-specific validation rules in frontend (e.g., NY requires county)
 
-**Medium Priority**:
-4. Add remaining high-volume states (GA, PA, OH, NC, VA)
-5. Create state comparison tool for users
-6. Add state-specific FAQ sections
+**Medium Priority**: 4. Add remaining high-volume states (GA, PA, OH, NC, VA) 5. Create state comparison tool for users 6. Add state-specific FAQ sections
 
-**Low Priority**:
-7. Series LLC support for TX and other states
-8. Professional LLC templates for licensed professionals
-9. Name reservation service integration
-10. Direct e-filing integration with state systems
+**Low Priority**: 7. Series LLC support for TX and other states 8. Professional LLC templates for licensed professionals 9. Name reservation service integration 10. Direct e-filing integration with state systems
 
 ### Justice Impact
 

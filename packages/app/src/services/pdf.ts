@@ -89,15 +89,15 @@ export function generateFilename(
     .replace(/[^a-z0-9\s-]/gi, '')
     .replace(/\s+/g, '_')
     .substring(0, 50)
-  
+
   const date = new Date().toISOString().split('T')[0]
-  
+
   const typeMap: Record<string, string> = {
     'operating-agreement': 'Operating_Agreement',
     'articles-of-organization': 'Articles_of_Organization',
   }
-  
+
   const typeName = typeMap[documentType] || documentType
-  
+
   return `${sanitized}_${typeName}_${date}.${extension}`
 }

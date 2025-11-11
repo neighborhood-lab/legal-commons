@@ -32,6 +32,7 @@ Wire up the LLC formation questionnaire frontend (currently UI-only from task #0
 ### API Integration Points
 
 **Create LLC**:
+
 ```typescript
 POST /api/llc/companies
 Body: {
@@ -43,6 +44,7 @@ Response: { id, ...llcData }
 ```
 
 **Generate Documents**:
+
 ```typescript
 GET /api/llc/companies/:id/documents
 Response: Array<{ type, name }>
@@ -105,6 +107,7 @@ Response: PDF file
 Successfully connected LLC formation frontend to backend API, completing the end-to-end workflow.
 
 **Delivered**:
+
 - API call to `POST /api/llc/companies` on form submission
 - Data transformation (camelCase → snake_case)
 - Loading states with `isSubmitting` flag
@@ -114,8 +117,9 @@ Successfully connected LLC formation frontend to backend API, completing the end
 - ESLint config: Added setTimeout/clearTimeout/setInterval/clearInterval to globals
 
 **Code Changes**: 78 lines (4 files)
+
 - `LLCFormationPage.tsx`: +56 lines
-- `ReviewStep.tsx`: +10 lines  
+- `ReviewStep.tsx`: +10 lines
 - `eslint.config.js`: +4 lines
 - Task file: +4 lines
 
@@ -127,6 +131,7 @@ Successfully connected LLC formation frontend to backend API, completing the end
 **After**: Full working system - form → API → database → dashboard → documents
 
 Users can now:
+
 1. Fill out 5-step LLC questionnaire
 2. Submit and save to database
 3. View in dashboard

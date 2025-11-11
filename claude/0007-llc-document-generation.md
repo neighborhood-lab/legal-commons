@@ -35,12 +35,14 @@ Build document generation system for LLC formation, including Operating Agreemen
 ## Technical Notes
 
 ### Template Engine Options
+
 1. **Handlebars** - Simple variable interpolation, conditionals, loops
 2. **Mustache** - Logic-less templates
 3. **EJS** - Embedded JavaScript
 4. **Recommendation**: Start with Handlebars for balance of simplicity and power
 
 ### PDF Generation Options
+
 1. **Puppeteer** - Renders HTML to PDF (Chrome headless)
    - Pros: Full CSS support, easy styling
    - Cons: Heavy (300MB+ with Chrome), slower
@@ -51,12 +53,14 @@ Build document generation system for LLC formation, including Operating Agreemen
 **Recommendation**: Use Puppeteer for initial implementation (easier for legal documents with complex formatting)
 
 ### Template Storage
+
 - Store templates in `packages/core/templates/llc/`
 - Separate directories per state: `templates/llc/operating-agreement/`, `templates/llc/articles-of-organization/{state}/`
 - Use Markdown for authoring, convert to HTML for PDF rendering
 - Track template version in `documents` table
 
 ### State-Specific Requirements
+
 - **California**: Requires specific business purpose language, publication requirement notice
 - **New York**: Requires publication in newspapers
 - **Delaware**: Minimal requirements, registered agent must be DE resident
@@ -114,6 +118,7 @@ Build document generation system for LLC formation, including Operating Agreemen
 8. **Effective Date**: When LLC becomes active
 
 ### File Naming Convention
+
 - `{company_name}_Operating_Agreement_{date}.pdf`
 - `{company_name}_Articles_of_Organization_{state}_{date}.pdf`
 - `{company_name}_Filing_Instructions_{state}_{date}.pdf`
@@ -124,12 +129,15 @@ Build document generation system for LLC formation, including Operating Agreemen
 Successfully implemented MVP document generation system for LLC formation with the following deliverables:
 
 **Templates Created** (`packages/core/templates/`):
+
 - `llc/operating-agreement/single-member.html` - 140 lines, professional formatting
 - `llc/operating-agreement/multi-member.html` - 190 lines, includes member table, signature blocks
 - `llc/articles-of-organization/CA.html` - 115 lines, California-specific requirements
 
 **Core Services**:
+
 - `packages/core/src/documents/templates.ts` (221 lines)
+
   - Template loading and compilation with Handlebars
   - Data preparation with snake_case/camelCase compatibility
   - State fallback logic (uses CA template if state-specific not found)
@@ -142,12 +150,14 @@ Successfully implemented MVP document generation system for LLC formation with t
   - Safe filename generation with sanitization
 
 **API Endpoints** (`packages/app/src/routes/documents.ts` - 198 lines):
+
 - GET `/api/llc/companies/:id/documents` - List available document types
 - POST `/api/llc/companies/:id/documents/generate` - Generate first document type as PDF
 - GET `/api/llc/companies/:id/documents/:type/preview` - Preview document HTML (for debugging)
 - GET `/api/llc/companies/:id/documents/:type/download` - Download specific document as PDF
 
 **Dependencies Added**:
+
 - `handlebars` ^4.7.8 - Template rendering engine
 - `puppeteer` ^23.11.1 - PDF generation (~300MB deployment size)
 - `archiver` ^7.0.1 - For future ZIP functionality
@@ -156,6 +166,7 @@ Successfully implemented MVP document generation system for LLC formation with t
 ### MVP Scope Decisions (Ship > Perfect)
 
 **Included in MVP**:
+
 - ✅ California state coverage (80% of US LLCs formed here)
 - ✅ Operating Agreement (both variants)
 - ✅ Articles of Organization
@@ -164,6 +175,7 @@ Successfully implemented MVP document generation system for LLC formation with t
 - ✅ Professional legal document formatting
 
 **Deferred to Future Tasks**:
+
 - 🔄 NY, TX, FL, DE state templates (architecture supports easy addition)
 - 🔄 Filing Instructions documents
 - 🔄 ZIP download for all documents at once
@@ -175,16 +187,19 @@ Successfully implemented MVP document generation system for LLC formation with t
 ### Technical Challenges & Solutions
 
 1. **snake_case vs camelCase Mismatch**
+
    - Problem: Database returns snake_case, TypeScript types use camelCase
    - Solution: Implemented dual-property lookup in template preparation
    - Future: Add knex postProcessResponse to handle conversion globally
 
 2. **Puppeteer Deployment Size**
+
    - Problem: Chrome binary adds ~300MB to deployment
    - Solution: Vercel supports Puppeteer natively, optimized args for serverless
    - Trade-off: Accepted size increase for high-quality PDF rendering
 
 3. **Template Flexibility**
+
    - Problem: Single/multi-member LLCs need different templates
    - Solution: Separate template files with conditional logic in data preparation
    - Benefit: Clean separation, easy to maintain
@@ -228,26 +243,20 @@ Successfully implemented MVP document generation system for LLC formation with t
 ### Future Enhancements
 
 **High Priority**:
+
 1. Add remaining 4 state templates (NY, TX, FL, DE)
 2. Implement ZIP download for all documents
 3. Add Filing Instructions documents
 4. Store generated documents in database for audit trail
 
-**Medium Priority**:
-5. Add template versioning system
-6. Implement document watermarking for drafts
-7. Add integration tests for PDF generation
-8. Optimize Puppeteer for faster cold starts
+**Medium Priority**: 5. Add template versioning system 6. Implement document watermarking for drafts 7. Add integration tests for PDF generation 8. Optimize Puppeteer for faster cold starts
 
-**Low Priority**:
-9. Add custom fonts for better typography
-10. Support for digital signatures
-11. Template builder UI for admins
-12. Document preview in frontend (iframe)
+**Low Priority**: 9. Add custom fonts for better typography 10. Support for digital signatures 11. Template builder UI for admins 12. Document preview in frontend (iframe)
 
 ### Integration Points
 
 **Frontend Integration** (Next Steps):
+
 1. Add "Generate Documents" button on LLC review page
 2. Display available document types from `/documents` endpoint
 3. Handle PDF download with proper MIME types
@@ -255,6 +264,7 @@ Successfully implemented MVP document generation system for LLC formation with t
 5. Add preview modal using `/documents/:type/preview` endpoint
 
 **Backend Integration**:
+
 - Successfully integrated with existing LLC API endpoints
 - Reuses authentication and authorization middleware
 - Compatible with existing database schema (no migrations needed)
