@@ -7,6 +7,7 @@ import { z } from 'zod'
 import {
   createLLCCompany,
   getLLCCompanyById,
+  listLLCCompanies,
   updateLLCCompany,
   deleteLLCCompany,
   addLLCMember,
@@ -79,6 +80,36 @@ const createLLCSchema = z.object({
 const updateLLCSchema = createLLCSchema.partial()
 
 const updateMemberSchema = memberSchema.partial()
+
+/**
+ * GET /api/llc/companies
+ * List all LLC companies for the authenticated user
+ */
+router.get('/companies', async (req, res) => {
+  try {
+    if (!req.user) {
+      res.status(401).json({ error: 'Authentication required' })
+      return
+    }
+
+    const page = parseInt(req.query.page as string) || 1
+    const limit = parseInt(req.query.limit as string) || 10
+    const state = req.query.state as string | undefined
+    const search = req.query.search as string | undefined
+
+    const result = await listLLCCompanies(req.user.userId, {
+      page,
+      limit,
+      state,
+      search,
+    })
+
+    res.json(result)
+  } catch (error) {
+    console.error('Error listing companies:', error)
+    res.status(500).json({ error: 'Internal server error' })
+  }
+})
 
 /**
  * POST /api/llc/companies
