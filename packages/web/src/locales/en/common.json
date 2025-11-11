@@ -1,0 +1,56 @@
+{
+  "app_name": "Legal Commons",
+  "tagline": "Affordable legal services for underserved communities",
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "dashboard": "Dashboard",
+    "login": "Log In",
+    "register": "Sign Up",
+    "logout": "Log Out"
+  },
+  "footer": {
+    "tagline": "Making legal services accessible to everyone",
+    "about_us": "About Us",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "faq": "FAQ",
+    "copyright": "© {{year}} Legal Commons. All rights reserved."
+  },
+  "language": {
+    "select": "Select Language",
+    "en": "English",
+    "es": "Español"
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "light": "Light mode",
+    "dark": "Dark mode"
+  },
+  "actions": {
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "download": "Download",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "retry": "Retry",
+    "search": "Search",
+    "filter": "Filter",
+    "clear": "Clear"
+  },
+  "status": {
+    "loading": "Loading...",
+    "saving": "Saving...",
+    "saved": "Saved",
+    "error": "Error",
+    "success": "Success"
+  }
+}

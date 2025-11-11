@@ -1,0 +1,84 @@
+{
+  "title": "Formación de LLC",
+  "steps": {
+    "state": "Selección de Estado",
+    "company": "Información de la Compañía",
+    "agent": "Agente Registrado",
+    "members": "Miembros",
+    "review": "Revisar"
+  },
+  "state_selection": {
+    "title": "Seleccione Su Estado",
+    "description": "Elija el estado donde desea formar su LLC",
+    "state_label": "Estado",
+    "state_placeholder": "Seleccione un estado",
+    "filing_fee": "Tarifa de Presentación: ${{fee}}",
+    "processing_time": "Tiempo de Procesamiento: {{time}}"
+  },
+  "company_info": {
+    "title": "Información de la Compañía",
+    "description": "Proporcione información básica sobre su LLC",
+    "company_name": "Nombre de la Compañía",
+    "company_name_help": "Debe incluir \"LLC\" o \"Compañía de Responsabilidad Limitada\"",
+    "business_purpose": "Propósito del Negocio",
+    "business_purpose_help": "Describa las actividades de su negocio",
+    "management_type": "Tipo de Gestión",
+    "management_types": {
+      "member_managed": "Gestionado por Miembros",
+      "member_managed_help": "Los miembros gestionan las operaciones diarias",
+      "manager_managed": "Gestionado por Gerentes",
+      "manager_managed_help": "Gerentes designados manejan las operaciones"
+    }
+  },
+  "registered_agent": {
+    "title": "Agente Registrado",
+    "description": "Proporcione la información de su agente registrado",
+    "name": "Nombre del Agente",
+    "address": "Dirección",
+    "city": "Ciudad",
+    "state": "Estado",
+    "zip": "Código Postal",
+    "help": "El agente registrado recibe documentos legales en nombre de su LLC"
+  },
+  "members": {
+    "title": "Miembros",
+    "description": "Agregue miembros y sus porcentajes de propiedad",
+    "add_member": "Agregar Miembro",
+    "member_name": "Nombre del Miembro",
+    "member_email": "Correo Electrónico",
+    "member_address": "Dirección",
+    "member_city": "Ciudad",
+    "member_state": "Estado",
+    "member_zip": "Código Postal",
+    "ownership": "Propiedad %",
+    "is_manager": "¿Es Gerente?",
+    "remove_member": "Eliminar Miembro",
+    "total_ownership": "Propiedad Total: {{total}}%",
+    "ownership_must_equal_100": "La propiedad total debe ser igual al 100%"
+  },
+  "review": {
+    "title": "Revisar y Enviar",
+    "description": "Revise su información antes de enviar",
+    "company_details": "Detalles de la Compañía",
+    "agent_details": "Agente Registrado",
+    "members_list": "Miembros",
+    "principal_office": "Oficina Principal",
+    "edit": "Editar",
+    "submit": "Enviar Formación",
+    "submitting": "Enviando..."
+  },
+  "errors": {
+    "required": "Este campo es requerido",
+    "invalid_email": "Correo electrónico inválido",
+    "invalid_zip": "Código postal inválido",
+    "company_name_invalid": "El nombre de la compañía debe incluir LLC",
+    "ownership_invalid": "La propiedad debe estar entre 0 y 100",
+    "at_least_one_member": "Debe tener al menos un miembro"
+  },
+  "success": {
+    "title": "¡Formación de LLC Enviada!",
+    "message": "Su formación de LLC ha sido enviada. Ahora puede generar sus documentos.",
+    "view_dashboard": "Ver Panel",
+    "generate_documents": "Generar Documentos"
+  }
+}

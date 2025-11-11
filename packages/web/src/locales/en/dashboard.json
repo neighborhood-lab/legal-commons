@@ -1,0 +1,35 @@
+{
+  "title": "Dashboard",
+  "welcome": "Welcome back, {{name}}!",
+  "my_llcs": "My LLCs",
+  "empty": {
+    "title": "No LLCs Yet",
+    "description": "Ready to form your LLC? Start your business journey today - it only takes 10 minutes.",
+    "cta": "Start LLC Formation"
+  },
+  "search_placeholder": "Search by company name...",
+  "filter": {
+    "all_states": "All States",
+    "state": "State: {{state}}"
+  },
+  "llc_card": {
+    "members": "{{count}} member",
+    "members_plural": "{{count}} members",
+    "created": "Created {{date}}",
+    "actions": {
+      "view": "View Details",
+      "download": "Download Documents"
+    }
+  },
+  "pagination": {
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page {{current}} of {{total}}"
+  },
+  "loading": "Loading your LLCs...",
+  "error": {
+    "title": "Failed to Load LLCs",
+    "message": "We couldn't load your LLCs. Please try again.",
+    "retry": "Retry"
+  }
+}

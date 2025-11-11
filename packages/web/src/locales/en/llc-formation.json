@@ -1,0 +1,84 @@
+{
+  "title": "LLC Formation",
+  "steps": {
+    "state": "State Selection",
+    "company": "Company Information",
+    "agent": "Registered Agent",
+    "members": "Members",
+    "review": "Review"
+  },
+  "state_selection": {
+    "title": "Select Your State",
+    "description": "Choose the state where you want to form your LLC",
+    "state_label": "State",
+    "state_placeholder": "Select a state",
+    "filing_fee": "Filing Fee: ${{fee}}",
+    "processing_time": "Processing Time: {{time}}"
+  },
+  "company_info": {
+    "title": "Company Information",
+    "description": "Provide basic information about your LLC",
+    "company_name": "Company Name",
+    "company_name_help": "Must include \"LLC\" or \"Limited Liability Company\"",
+    "business_purpose": "Business Purpose",
+    "business_purpose_help": "Describe your business activities",
+    "management_type": "Management Type",
+    "management_types": {
+      "member_managed": "Member-Managed",
+      "member_managed_help": "Members manage day-to-day operations",
+      "manager_managed": "Manager-Managed",
+      "manager_managed_help": "Designated managers handle operations"
+    }
+  },
+  "registered_agent": {
+    "title": "Registered Agent",
+    "description": "Provide your registered agent information",
+    "name": "Agent Name",
+    "address": "Street Address",
+    "city": "City",
+    "state": "State",
+    "zip": "ZIP Code",
+    "help": "The registered agent receives legal documents on behalf of your LLC"
+  },
+  "members": {
+    "title": "Members",
+    "description": "Add members and their ownership percentages",
+    "add_member": "Add Member",
+    "member_name": "Member Name",
+    "member_email": "Email",
+    "member_address": "Address",
+    "member_city": "City",
+    "member_state": "State",
+    "member_zip": "ZIP",
+    "ownership": "Ownership %",
+    "is_manager": "Is Manager?",
+    "remove_member": "Remove Member",
+    "total_ownership": "Total Ownership: {{total}}%",
+    "ownership_must_equal_100": "Total ownership must equal 100%"
+  },
+  "review": {
+    "title": "Review & Submit",
+    "description": "Review your information before submitting",
+    "company_details": "Company Details",
+    "agent_details": "Registered Agent",
+    "members_list": "Members",
+    "principal_office": "Principal Office",
+    "edit": "Edit",
+    "submit": "Submit Formation",
+    "submitting": "Submitting..."
+  },
+  "errors": {
+    "required": "This field is required",
+    "invalid_email": "Invalid email address",
+    "invalid_zip": "Invalid ZIP code",
+    "company_name_invalid": "Company name must include LLC",
+    "ownership_invalid": "Ownership must be between 0 and 100",
+    "at_least_one_member": "You must have at least one member"
+  },
+  "success": {
+    "title": "LLC Formation Submitted!",
+    "message": "Your LLC formation has been submitted. You can now generate your documents.",
+    "view_dashboard": "View Dashboard",
+    "generate_documents": "Generate Documents"
+  }
+}
