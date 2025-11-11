@@ -11,12 +11,17 @@
     "logout": "Cerrar Sesión"
   },
   "footer": {
+    "about_title": "Acerca de Legal Commons",
+    "about_description": "Plataforma de código abierto que democratiza el acceso a servicios legales y preparación de documentos.",
+    "links_title": "Enlaces Rápidos",
+    "contact_title": "Contacto",
     "tagline": "Haciendo los servicios legales accesibles para todos",
     "about_us": "Acerca de Nosotros",
     "contact": "Contacto",
     "privacy": "Política de Privacidad",
     "terms": "Términos de Servicio",
     "faq": "Preguntas Frecuentes",
+    "github": "GitHub",
     "copyright": "© {{year}} Legal Commons. Todos los derechos reservados."
   },
   "language": {
