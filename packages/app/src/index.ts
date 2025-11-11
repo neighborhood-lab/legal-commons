@@ -8,6 +8,7 @@ import helmet from 'helmet'
 import cors from 'cors'
 import morgan from 'morgan'
 import { config } from 'dotenv'
+import { checkDatabaseHealth } from '@legal-commons/core'
 
 // Load environment variables
 config()
@@ -28,8 +29,16 @@ app.use(express.urlencoded({ extended: true }))
 app.use(morgan('combined'))
 
 // Health check endpoint
-app.get('/health', (_req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() })
+app.get('/health', async (_req, res) => {
+  const dbHealthy = await checkDatabaseHealth()
+  
+  res.json({
+    status: dbHealthy ? 'ok' : 'degraded',
+    timestamp: new Date().toISOString(),
+    services: {
+      database: dbHealthy ? 'healthy' : 'unhealthy',
+    },
+  })
 })
 
 // API documentation placeholder
