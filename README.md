@@ -102,12 +102,14 @@ npm run db:migrate:status # Check migration status
 ## 🎯 Core Features
 
 ### Phase 1: Business Formation (Current)
+
 - LLC formation (50 states)
 - Corporation formation
 - Operating agreements
 - State filing integration
 
 ### Upcoming Phases
+
 - Estate Planning (wills, trusts, powers of attorney)
 - Family Law (divorce, custody, adoption)
 - Immigration (I-9, I-485, N-400, DACA)
@@ -142,6 +144,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 This project is licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**.
 
 This ensures that:
+
 - The code remains open source forever
 - Any modifications must be shared with the community
 - The platform cannot be proprietized by commercial entities
@@ -157,6 +160,7 @@ See [LICENSE](LICENSE) for full details.
 ## 🙏 Acknowledgments
 
 Built on the shoulders of giants:
+
 - Inspired by the Care Commons project architecture
 - Standing for justice alongside legal aid organizations worldwide
 - Dedicated to the underserved communities who deserve equal access to justice

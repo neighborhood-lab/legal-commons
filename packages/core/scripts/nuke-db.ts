@@ -12,14 +12,14 @@ async function nukeDatabase() {
     console.error('DANGER: Cannot nuke database in production!')
     process.exit(1)
   }
-  
+
   const confirmation = process.argv[2]
   if (confirmation !== '--confirm') {
     console.error('This will DROP ALL TABLES!')
     console.error('To confirm, run: npm run db:nuke -- --confirm')
     process.exit(1)
   }
-  
+
   try {
     console.log('Dropping all tables...')
     await db.migrate.rollback(undefined, true) // Rollback all

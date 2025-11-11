@@ -3,12 +3,7 @@
  */
 
 import { describe, it, expect, beforeAll } from 'vitest'
-import {
-  generateTokenPair,
-  verifyAccessToken,
-  verifyRefreshToken,
-  decodeToken,
-} from '../tokens'
+import { generateTokenPair, verifyAccessToken, verifyRefreshToken, decodeToken } from '../tokens'
 
 describe('Token Utilities', () => {
   const testPayload = {
@@ -58,9 +53,7 @@ describe('Token Utilities', () => {
     })
 
     it('should reject invalid token', () => {
-      expect(() => verifyRefreshToken('invalid-token')).toThrow(
-        'Invalid or expired refresh token'
-      )
+      expect(() => verifyRefreshToken('invalid-token')).toThrow('Invalid or expired refresh token')
     })
   })
 

@@ -32,11 +32,5 @@
       "@verticals/*": ["./packages/verticals/*"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "dist",
-    "build",
-    ".next",
-    "coverage"
-  ]
+  "exclude": ["node_modules", "dist", "build", ".next", "coverage"]
 }

@@ -16,12 +16,14 @@ Legal Commons is committed to providing a welcoming and inclusive environment fo
 ### For Developers
 
 1. **Fork the repository** and create a feature branch:
+
    ```bash
    git checkout develop
    git checkout -b feature/your-feature-name
    ```
 
 2. **Make your changes** following our coding standards:
+
    - Write tests for new functionality
    - Ensure all tests pass (`npm run test`)
    - Run linters (`npm run lint`)
@@ -29,11 +31,13 @@ Legal Commons is committed to providing a welcoming and inclusive environment fo
    - Follow conventional commit messages
 
 3. **Commit your changes**:
+
    ```bash
    git commit -m "feat(scope): brief description"
    ```
 
 4. **Push to your fork** and create a pull request:
+
    ```bash
    git push origin feature/your-feature-name
    ```
