@@ -1,0 +1,41 @@
+{
+  "name": "@legal-commons/shared-components",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shared React components for Legal Commons",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc && tsc-alias",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui"
+  },
+  "dependencies": {
+    "@headlessui/react": "2.2.9",
+    "framer-motion": "12.23.24",
+    "lucide-react": "0.553.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "zod": "4.1.12"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "6.6.3",
+    "@testing-library/react": "16.3.0",
+    "@testing-library/user-event": "14.6.1",
+    "@types/react": "19.0.10",
+    "@types/react-dom": "19.0.4",
+    "@vitest/coverage-v8": "4.0.8",
+    "happy-dom": "20.0.10",
+    "vitest": "4.0.8"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

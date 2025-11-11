@@ -1,0 +1,52 @@
+{
+  "name": "@legal-commons/web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "React web application for Legal Commons",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "clean": "rm -rf dist",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui"
+  },
+  "dependencies": {
+    "@headlessui/react": "2.2.9",
+    "@hookform/resolvers": "3.9.1",
+    "@legal-commons/core": "*",
+    "@legal-commons/shared-components": "*",
+    "@tanstack/react-query": "5.90.7",
+    "@nozbe/watermelondb": "0.27.1",
+    "framer-motion": "12.23.24",
+    "lucide-react": "0.553.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "react-hook-form": "7.66.0",
+    "react-hot-toast": "2.6.0",
+    "react-router-dom": "6.28.0",
+    "recharts": "3.3.0",
+    "zod": "4.1.12",
+    "zustand": "5.0.8"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "6.6.3",
+    "@testing-library/react": "16.3.0",
+    "@testing-library/user-event": "14.6.1",
+    "@types/react": "19.0.10",
+    "@types/react-dom": "19.0.4",
+    "@vitejs/plugin-react": "5.1.0",
+    "@vitest/coverage-v8": "4.0.8",
+    "autoprefixer": "10.4.20",
+    "happy-dom": "20.0.10",
+    "postcss": "8.5.1",
+    "tailwindcss": "4.1.17",
+    "vite": "6.0.7",
+    "vitest": "4.0.8"
+  }
+}
