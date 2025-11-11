@@ -45,16 +45,16 @@ export function HomePage() {
           Why Legal Commons?
         </h2>
         <p className="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
-          We believe everyone should have access to legal services, regardless of income or language.
+          We believe everyone should have access to legal services, regardless of income or
+          language.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="card text-center">
             <div className="text-4xl mb-4">⚡</div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
-              Fast
-            </h3>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">Fast</h3>
             <p className="text-gray-600 dark:text-gray-400">
-              Complete your LLC formation in 10 minutes. Instant document generation with professional templates.
+              Complete your LLC formation in 10 minutes. Instant document generation with
+              professional templates.
             </p>
           </div>
 
@@ -64,7 +64,8 @@ export function HomePage() {
               Affordable
             </h3>
             <p className="text-gray-600 dark:text-gray-400">
-              Free document generation. Pay only state filing fees ($90-$300). No $500-2000 lawyer fees.
+              Free document generation. Pay only state filing fees ($90-$300). No $500-2000 lawyer
+              fees.
             </p>
           </div>
 
@@ -74,7 +75,8 @@ export function HomePage() {
               Accessible
             </h3>
             <p className="text-gray-600 dark:text-gray-400">
-              Spanish language support. Plain English explanations. Mobile-friendly. Built for everyone.
+              Spanish language support. Plain English explanations. Mobile-friendly. Built for
+              everyone.
             </p>
           </div>
         </div>
@@ -95,7 +97,8 @@ export function HomePage() {
                 Fill Out Form
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                Answer simple questions about your business. We'll guide you through every step with plain language explanations.
+                Answer simple questions about your business. We'll guide you through every step with
+                plain language explanations.
               </p>
             </div>
 
@@ -107,7 +110,8 @@ export function HomePage() {
                 Generate Documents
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                We instantly create your Articles of Organization and Operating Agreement using professional legal templates.
+                We instantly create your Articles of Organization and Operating Agreement using
+                professional legal templates.
               </p>
             </div>
 
@@ -119,7 +123,8 @@ export function HomePage() {
                 File with State
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                Download your documents and follow our filing instructions. Your LLC will be official in days, not months.
+                Download your documents and follow our filing instructions. Your LLC will be
+                official in days, not months.
               </p>
             </div>
           </div>
