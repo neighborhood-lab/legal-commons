@@ -168,6 +168,84 @@ export function HomePage() {
         </div>
       </div>
 
+      {/* FAQ section */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12">
+          Frequently Asked Questions
+        </h2>
+        <div className="space-y-6">
+          <details className="card group">
+            <summary className="cursor-pointer font-semibold text-lg text-gray-900 dark:text-gray-100 list-none flex justify-between items-center">
+              What is an LLC and do I need one?
+              <span className="text-2xl group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p className="mt-4 text-gray-600 dark:text-gray-400">
+              An LLC (Limited Liability Company) protects your personal assets from business debts
+              and lawsuits. If you're starting a business, freelancing, or managing rental
+              properties, an LLC provides legal protection and tax benefits.
+            </p>
+          </details>
+
+          <details className="card group">
+            <summary className="cursor-pointer font-semibold text-lg text-gray-900 dark:text-gray-100 list-none flex justify-between items-center">
+              How much does it cost to form an LLC?
+              <span className="text-2xl group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p className="mt-4 text-gray-600 dark:text-gray-400">
+              Legal Commons provides free document generation. You only pay state filing fees
+              ($70-$300 depending on your state). Compare that to lawyers who charge $500-$2,000 or
+              services like LegalZoom that charge $300+ in addition to state fees.
+            </p>
+          </details>
+
+          <details className="card group">
+            <summary className="cursor-pointer font-semibold text-lg text-gray-900 dark:text-gray-100 list-none flex justify-between items-center">
+              Do I need a lawyer to form an LLC?
+              <span className="text-2xl group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p className="mt-4 text-gray-600 dark:text-gray-400">
+              No! Our platform guides you through the entire process with simple questions and
+              generates state-compliant legal documents. We use the same templates lawyers use. You
+              can form your LLC yourself and save thousands of dollars.
+            </p>
+          </details>
+
+          <details className="card group">
+            <summary className="cursor-pointer font-semibold text-lg text-gray-900 dark:text-gray-100 list-none flex justify-between items-center">
+              How long does it take to form an LLC?
+              <span className="text-2xl group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p className="mt-4 text-gray-600 dark:text-gray-400">
+              You can complete our form in about 10 minutes. After you file your documents with the
+              state, approval typically takes 1-2 weeks depending on the state. Some states offer
+              expedited processing for an additional fee.
+            </p>
+          </details>
+
+          <details className="card group">
+            <summary className="cursor-pointer font-semibold text-lg text-gray-900 dark:text-gray-100 list-none flex justify-between items-center">
+              What states do you support?
+              <span className="text-2xl group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p className="mt-4 text-gray-600 dark:text-gray-400">
+              We currently support California, New York, Texas, Florida, and Delaware. These states
+              represent over 40% of all US businesses. We're continuously expanding to more states.
+            </p>
+          </details>
+
+          <details className="card group">
+            <summary className="cursor-pointer font-semibold text-lg text-gray-900 dark:text-gray-100 list-none flex justify-between items-center">
+              Is Legal Commons available in Spanish?
+              <span className="text-2xl group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p className="mt-4 text-gray-600 dark:text-gray-400">
+              Yes! We offer full Spanish language support for the entire platform. Use the language
+              switcher in the header to switch between English and Spanish (Español).
+            </p>
+          </details>
+        </div>
+      </div>
+
       {/* CTA section */}
       <div className="bg-primary-600 dark:bg-primary-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
