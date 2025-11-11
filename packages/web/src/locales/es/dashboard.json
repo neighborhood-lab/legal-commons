@@ -1,0 +1,35 @@
+{
+  "title": "Panel",
+  "welcome": "¡Bienvenido de nuevo, {{name}}!",
+  "my_llcs": "Mis LLCs",
+  "empty": {
+    "title": "No Hay LLCs Todavía",
+    "description": "¿Listo para formar su LLC? Comience su viaje empresarial hoy - solo toma 10 minutos.",
+    "cta": "Comenzar Formación de LLC"
+  },
+  "search_placeholder": "Buscar por nombre de compañía...",
+  "filter": {
+    "all_states": "Todos los Estados",
+    "state": "Estado: {{state}}"
+  },
+  "llc_card": {
+    "members": "{{count}} miembro",
+    "members_plural": "{{count}} miembros",
+    "created": "Creado {{date}}",
+    "actions": {
+      "view": "Ver Detalles",
+      "download": "Descargar Documentos"
+    }
+  },
+  "pagination": {
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "page": "Página {{current}} de {{total}}"
+  },
+  "loading": "Cargando sus LLCs...",
+  "error": {
+    "title": "Error al Cargar LLCs",
+    "message": "No pudimos cargar sus LLCs. Por favor intente de nuevo.",
+    "retry": "Reintentar"
+  }
+}

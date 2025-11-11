@@ -5,12 +5,15 @@
 import { Link } from 'react-router-dom'
 import { Menu, X, Sun, Moon, Monitor } from 'lucide-react'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useAuth } from '../../contexts/AuthContext'
 import { useTheme } from '../../contexts/ThemeContext'
+import { LanguageSwitcher } from '../common/LanguageSwitcher'
 
 export function Header() {
   const { isAuthenticated, user, logout } = useAuth()
   const { theme, setTheme } = useTheme()
+  const { t } = useTranslation('common')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const themeIcons = {
@@ -41,7 +44,7 @@ export function Header() {
               to="/"
               className="flex items-center px-2 text-xl font-bold text-primary-600 dark:text-primary-400"
             >
-              Legal Commons
+              {t('app_name')}
             </Link>
 
             {isAuthenticated && (
@@ -50,7 +53,7 @@ export function Header() {
                   to="/dashboard"
                   className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
                 >
-                  Dashboard
+                  {t('header.dashboard')}
                 </Link>
                 <Link
                   to="/documents"
@@ -64,11 +67,14 @@ export function Header() {
 
           {/* Right side nav */}
           <div className="flex items-center space-x-2">
+            {/* Language Switcher */}
+            <LanguageSwitcher />
+
             {/* Theme toggle */}
             <button
               onClick={cycleTheme}
               className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
-              aria-label={`Current theme: ${theme}. Click to change.`}
+              aria-label={t('theme.toggle')}
             >
               <ThemeIcon className="h-5 w-5" />
             </button>
@@ -81,7 +87,7 @@ export function Header() {
                     {user?.firstName} {user?.lastName}
                   </span>
                   <button onClick={logout} className="btn-secondary text-sm">
-                    Logout
+                    {t('header.logout')}
                   </button>
                 </div>
 
@@ -98,10 +104,10 @@ export function Header() {
             ) : (
               <div className="flex items-center space-x-2">
                 <Link to="/login" className="btn-secondary text-sm">
-                  Login
+                  {t('header.login')}
                 </Link>
                 <Link to="/register" className="btn-primary text-sm">
-                  Sign Up
+                  {t('header.register')}
                 </Link>
               </div>
             )}
@@ -117,7 +123,7 @@ export function Header() {
                 className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Dashboard
+                {t('header.dashboard')}
               </Link>
               <Link
                 to="/documents"
@@ -134,7 +140,7 @@ export function Header() {
                   onClick={logout}
                   className="w-full text-left px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
                 >
-                  Logout
+                  {t('header.logout')}
                 </button>
               </div>
             </div>

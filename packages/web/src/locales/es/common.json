@@ -1,0 +1,56 @@
+{
+  "app_name": "Legal Commons",
+  "tagline": "Servicios legales asequibles para comunidades desatendidas",
+  "header": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "services": "Servicios",
+    "dashboard": "Panel",
+    "login": "Iniciar Sesión",
+    "register": "Registrarse",
+    "logout": "Cerrar Sesión"
+  },
+  "footer": {
+    "tagline": "Haciendo los servicios legales accesibles para todos",
+    "about_us": "Acerca de Nosotros",
+    "contact": "Contacto",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "faq": "Preguntas Frecuentes",
+    "copyright": "© {{year}} Legal Commons. Todos los derechos reservados."
+  },
+  "language": {
+    "select": "Seleccionar Idioma",
+    "en": "English",
+    "es": "Español"
+  },
+  "theme": {
+    "toggle": "Cambiar tema",
+    "light": "Modo claro",
+    "dark": "Modo oscuro"
+  },
+  "actions": {
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "view": "Ver",
+    "download": "Descargar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "close": "Cerrar",
+    "retry": "Reintentar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "clear": "Limpiar"
+  },
+  "status": {
+    "loading": "Cargando...",
+    "saving": "Guardando...",
+    "saved": "Guardado",
+    "error": "Error",
+    "success": "Éxito"
+  }
+}
