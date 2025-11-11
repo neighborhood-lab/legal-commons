@@ -21,8 +21,8 @@
     "@hookform/resolvers": "3.9.1",
     "@legal-commons/core": "*",
     "@legal-commons/shared-components": "*",
-    "@tanstack/react-query": "5.90.7",
     "@nozbe/watermelondb": "0.27.1",
+    "@tanstack/react-query": "5.90.7",
     "framer-motion": "12.23.24",
     "lucide-react": "0.553.0",
     "react": "19.2.0",
@@ -45,7 +45,7 @@
     "autoprefixer": "10.4.20",
     "happy-dom": "20.0.10",
     "postcss": "8.5.1",
-    "tailwindcss": "4.1.17",
+    "tailwindcss": "^3.4.18",
     "vite": "6.0.7",
     "vitest": "4.0.8"
   }
