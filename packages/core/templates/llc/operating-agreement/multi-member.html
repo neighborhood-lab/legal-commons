@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operating Agreement - {{companyName}}</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.6;
+      margin: 40px;
+      color: #000;
+    }
+    h1 {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    h2 {
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    p {
+      margin: 10px 0;
+      text-align: justify;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    table, th, td {
+      border: 1px solid #000;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f0f0;
+      font-weight: bold;
+    }
+    .signature-section {
+      margin-top: 30px;
+      page-break-inside: avoid;
+    }
+    .signature-block {
+      margin-top: 40px;
+      page-break-inside: avoid;
+    }
+    .signature-line {
+      border-top: 1px solid #000;
+      width: 300px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h1>OPERATING AGREEMENT<br>OF<br>{{companyName}}</h1>
+
+  <p>This Operating Agreement (the "Agreement") of {{companyName}} (the "Company") is entered into and shall be effective as of {{formationDate}}, by and among the Members named below.</p>
+
+  <h2>ARTICLE I: ORGANIZATION</h2>
+  
+  <p>1.1 <strong>Formation.</strong> The Company has been organized as a {{state}} Limited Liability Company pursuant to the provisions of the {{state}} Limited Liability Company Act.</p>
+  
+  <p>1.2 <strong>Name.</strong> The name of the Company is {{companyName}}.</p>
+  
+  <p>1.3 <strong>Principal Office.</strong> The principal office of the Company shall be located at {{officeAddress}}, {{officeCity}}, {{officeState}} {{officeZip}}, or such other place as the Members may from time to time designate.</p>
+  
+  <p>1.4 <strong>Registered Agent.</strong> The registered agent for service of process on the Company in the State of {{state}} shall be {{agentName}}, with a registered office at {{agentAddress}}, {{agentCity}}, {{agentState}} {{agentZip}}.</p>
+  
+  <p>1.5 <strong>Purpose.</strong> The purpose of the Company is to engage in {{businessPurpose}}, and any and all lawful business for which a limited liability company may be formed under the laws of the State of {{state}}.</p>
+
+  <h2>ARTICLE II: MEMBERS AND OWNERSHIP</h2>
+  
+  <p>2.1 <strong>Members.</strong> The names, addresses, and ownership interests of the Members are as follows:</p>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Member Name</th>
+        <th>Address</th>
+        <th>Ownership %</th>
+        <th>Manager</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each members}}
+      <tr>
+        <td>{{this.name}}</td>
+        <td>{{this.street}}, {{this.city}}, {{this.state}} {{this.zip}}</td>
+        <td>{{this.ownershipPercentage}}%</td>
+        <td>{{#if this.isManager}}Yes{{else}}No{{/if}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <h2>ARTICLE III: MANAGEMENT</h2>
+  
+  {{#if isMemberManaged}}
+  <p>3.1 <strong>Member-Managed.</strong> The Company shall be managed by all of its Members. Each Member shall have the authority to bind the Company and make decisions on behalf of the Company in proportion to their ownership interest.</p>
+  
+  <p>3.2 <strong>Voting.</strong> Except as otherwise required by law or this Agreement, all decisions shall be made by a vote of the Members holding a majority of the ownership interests.</p>
+  {{else}}
+  <p>3.1 <strong>Manager-Managed.</strong> The Company shall be managed by the Members designated as "Managers" in Article II above. Only Managers shall have the authority to bind the Company and make decisions on behalf of the Company.</p>
+  
+  <p>3.2 <strong>Voting.</strong> Except as otherwise required by law or this Agreement, all management decisions shall be made by a vote of the Managers holding a majority of the ownership interests held by Managers.</p>
+  {{/if}}
+
+  <h2>ARTICLE IV: CAPITAL CONTRIBUTIONS</h2>
+  
+  <p>4.1 <strong>Initial Contributions.</strong> The Members have made or shall make the following initial capital contributions:</p>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Member Name</th>
+        <th>Capital Contribution</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each members}}
+      <tr>
+        <td>{{this.name}}</td>
+        <td>${{#if this.capitalContribution}}{{this.capitalContribution}}{{else}}0{{/if}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  
+  <p>4.2 <strong>Additional Contributions.</strong> No Member shall be obligated to make any additional capital contribution unless agreed to in writing by all Members.</p>
+
+  <h2>ARTICLE V: DISTRIBUTIONS AND ALLOCATIONS</h2>
+  
+  <p>5.1 <strong>Distributions.</strong> Distributions shall be made to the Members at such times and in such amounts as determined by {{#if isMemberManaged}}a majority vote of the Members{{else}}the Managers{{/if}}.</p>
+  
+  <p>5.2 <strong>Allocation of Profits and Losses.</strong> All items of Company income, gain, loss, deduction, and credit shall be allocated among the Members in proportion to their respective ownership interests.</p>
+
+  <h2>ARTICLE VI: TRANSFER OF INTERESTS</h2>
+  
+  <p>6.1 <strong>Restrictions on Transfer.</strong> No Member may sell, assign, transfer, pledge, or otherwise dispose of all or any part of their interest in the Company without the prior written consent of {{#if isMemberManaged}}all other Members{{else}}the Managers{{/if}}.</p>
+  
+  <p>6.2 <strong>Right of First Refusal.</strong> If a Member receives a bona fide offer to purchase their interest, the other Members shall have a right of first refusal to purchase such interest on the same terms and conditions as the offer.</p>
+
+  <h2>ARTICLE VII: DISSOLUTION</h2>
+  
+  <p>7.1 <strong>Events of Dissolution.</strong> The Company shall dissolve upon the earliest to occur of:</p>
+  <p style="margin-left: 40px;">
+    (a) The written agreement of Members holding a majority of the ownership interests;<br>
+    (b) The entry of a decree of judicial dissolution under the laws of the State of {{state}};<br>
+    (c) Any event which makes it unlawful for the business of the Company to be carried on.
+  </p>
+  
+  <p>7.2 <strong>Winding Up.</strong> Upon dissolution, the Company shall be wound up and its assets distributed in the following order:</p>
+  <p style="margin-left: 40px;">
+    (a) To creditors, including Members who are creditors, in satisfaction of liabilities of the Company;<br>
+    (b) To the Members in proportion to their positive capital account balances.
+  </p>
+
+  <h2>ARTICLE VIII: MISCELLANEOUS</h2>
+  
+  <p>8.1 <strong>Amendments.</strong> This Agreement may be amended only by a written instrument executed by Members holding at least a majority of the ownership interests.</p>
+  
+  <p>8.2 <strong>Governing Law.</strong> This Agreement shall be governed by and construed in accordance with the laws of the State of {{state}}.</p>
+  
+  <p>8.3 <strong>Binding Effect.</strong> This Agreement shall be binding upon and inure to the benefit of the Members and their respective successors, assigns, heirs, executors, and administrators.</p>
+  
+  <p>8.4 <strong>Entire Agreement.</strong> This Agreement constitutes the entire agreement among the Members with respect to the subject matter hereof and supersedes all prior agreements and understandings.</p>
+
+  <div class="signature-section">
+    <p><strong>IN WITNESS WHEREOF,</strong> the undersigned Members have executed this Agreement as of the date first written above.</p>
+    
+    {{#each members}}
+    <div class="signature-block">
+      <div class="signature-line"></div>
+      <p><strong>{{this.name}}</strong>, Member</p>
+      
+      <div style="margin-top: 10px;">
+        Date: <div class="signature-line" style="display: inline-block; width: 200px; margin-left: 20px; margin-top: 0;"></div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</body>
+</html>
